@@ -59,9 +59,9 @@ btnReadMore.addEventListener('click', function(){
   
   readMore.classList.toggle('none')
   if(readMore.classList.contains('none')){
-    btnReadMore.innerHTML = 'Read More >>'
+    btnReadMore.innerHTML = 'Read More &raquo;'
   }else{
-    btnReadMore.innerHTML = '<< Read Less'
+    btnReadMore.innerHTML = `&laquo; Read Less ` 
   }
 
 });
