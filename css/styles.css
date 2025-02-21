@@ -112,136 +112,133 @@ a:hover{
   justify-content: center;
 }
 
-.num{
-  position: absolute;
-  border-radius: 100%;
-  top: 10;
-  z-index: 1;
-  width: 60px;
-	height: 60px;
-  text-align: center;
-  margin-top: -60px;
-  margin-right: -75px;
+svg{
+  border-radius: 200px;
 }
 
-.num .HTML span.glow {
-  text-shadow: 0 0 10px rgba(52, 152, 219, 0.8), 0 0 20px rgba(52, 152, 219, 0.6);
-  transform: scale(1.2);
-}
-
-.HTML .circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%; /* Sesuaikan dengan ukuran .num */
-  height: 100%; /* Sesuaikan dengan ukuran .num */
-  border-radius: 50%; /* Membuatnya berbentuk lingkaran */
-  border: 4px solid #dc3545;
-  opacity: 0;
-  transform: translate(-50%, -50%);
-  animation: circleEffect 2s ease-out forwards;
-}
-
-.CSS .circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%; /* Sesuaikan dengan ukuran .num */
-  height: 100%; /* Sesuaikan dengan ukuran .num */
-  border-radius: 50%; /* Membuatnya berbentuk lingkaran */
-  border: 4px solid #507cf6;
-  opacity: 0;
-  transform: translate(-50%, -50%);
-  animation: circleEffect 2s ease-out forwards;
-}
-
-.Script .circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%; 
-  height: 100%; 
-  border-radius: 50%;
-  border: 4px solid  #f7df1e;
-  opacity: 0;
-  transform: translate(-50%, -50%);
-  animation: circleEffect 2s ease-out forwards;
-}
-
-.Node .circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%; 
-  height: 100%;
-  border-radius: 50%; 
-  border: 4px solid #8cc84b;
-  opacity: 0;
-  transform: translate(-50%, -50%);
-  animation: circleEffect 2s ease-out forwards;
-}
-.React .circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%; 
-  height: 100%; 
-  border-radius: 50%;
-  border: 4px solid  #17a2b8;
-  opacity: 0;
-  transform: translate(-50%, -50%);
-  animation: circleEffect 2s ease-out forwards;
-}
-.PHP .circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%; 
-  height: 100%; 
-  border-radius: 50%;
-  border: 4px solid #8993be;
-  opacity: 0;
-  transform: translate(-50%, -50%);
-  animation: circleEffect 2s ease-out forwards;
-}
-
-
-
-.HTML{
-  color: #dc3545;
-  border: 5px solid  #dc3545;
+.html-bg{
   background-color: rgba(220, 53, 69, 0.5);
 }
+.html-color{
+  color: #dc3545;
+  stroke: #dc3545;
+}
 
-.CSS{
-  color: #507cf6;
-  border: 5px solid #507cf6;
+.html-color{
+  color: #dc3545;
+  stroke: #dc3545;
+}
+.css-bg{
   background-color: rgba(69, 108, 186, 0.5);
 }
-.React{
-  color: #17a2b8;
-  border: 5px solid #17a2b8;
-  background-color: rgb(23, 162, 184, 0.5);
-}
+.css-color{
+  color: #507cf6;
+  stroke: #507cf6;
 
-.Script{
-  color: #f7df1e;
-  border: 5px solid #f7df1e;
+}
+.delete{
+  clear: both;
+}
+.js-bg{
   background-color: rgba(247, 223, 30, 0.5);
 }
+.js-color{
+  color: #f7df1e;
+  stroke: #f7df1e;
 
-.Node{
-  color:#8cc84b;
-  border: 5px solid #8cc84b;
+}
+
+.node-bg{
   background-color: rgba(140, 200, 75, 0.5);
 }
+.node-color{
+  color: #8cc84b;
+  stroke: #8cc84b;
 
-.PHP{
-  color:#8993be;
-  border: 5px solid #8993be;
-  background-color: rgba(137, 147, 190, 0.5);
 }
 
+.react-bg{
+  background-color: rgba(52, 152, 219, 0.8);
+}
+.react-color{
+  color: #17a2b8;
+  stroke: #17a2b8;
+
+}
+
+.php-bg{
+  background-color: rgba(137, 147, 190, 0.5);
+}
+.php-color{
+  color: #8993be;
+  stroke: #8993be;
+
+}
+
+.percentage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  font-weight: bold;
+  /* background-color: rgba(247, 223, 30, 0.5); */
+  font-family: Arial, sans-serif;
+}
+.circle {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle svg {
+  transform: rotate(-90deg);
+}
+
+.circle circle {
+  fill: none;
+  stroke-width: 10;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease-in-out;
+}
+
+.circle .bg {
+  stroke: #333;
+}
+
+.circle .progress-html {
+  stroke-dasharray: 188.4;
+  stroke-dashoffset: 188.4;
+}
+.circle .progress-css {
+  stroke-dasharray: 188.4;
+  stroke-dashoffset: 188.4;
+}
+.circle .progress-js {
+  stroke-dasharray: 188.4;
+  stroke-dashoffset: 188.4;
+}
+.circle .progress-node {
+  stroke-dasharray: 188.4;
+  stroke-dashoffset: 188.4;
+}
+.circle .progress-react {
+  stroke-dasharray: 188.4;
+  stroke-dashoffset: 188.4;
+}
+.circle .progress-php {
+  stroke-dasharray: 188.4;
+  stroke-dashoffset: 188.4;
+}
+
+.percentage {
+  position: absolute;
+  font-size: 20px;
+  font-weight: bold;
+}
 span{
   position: absolute;
   margin-left: -13px;

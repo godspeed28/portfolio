@@ -5,30 +5,39 @@ const NodeJs = 30;
 const React = 20;
 const PHP = 50;
 
-function animateNumber(element, start, end, duration) {
-    let current = start;
-    const range = end - start;
-    const increment = range / (duration / 10);
-    const timer = setInterval(() => {
-        current += increment;
-        if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
-            current = end;
-            clearInterval(timer);
-        }
-        element.textContent = Math.floor(current).toLocaleString() + `%`;
-          // Menambahkan efek glow dan lingkaran
-          element.classList.add('glow');
-    }, 10);
-}
-document.addEventListener("DOMContentLoaded", () => {
-    animateNumber(document.querySelector(".HTML span"), 0, HTML, 2000);
-    animateNumber(document.querySelector(".CSS span"), 0, CSSv, 2000);
-    animateNumber(document.querySelector(".Script span"), 0, JavaScript, 2000);
-    animateNumber(document.querySelector(".Node span"), 0, NodeJs, 2000);
-    animateNumber(document.querySelector(".React span"), 0, React, 2000);
-    animateNumber(document.querySelector(".PHP span"), 0, PHP, 2000);
+function animateProgress(circleSelector, textSelector, skillValue) {
+  let circle = document.querySelector(circleSelector);
+  let text = document.getElementById(textSelector);
+  
+  let percentage = skillValue;
+  let batasMax = skillValue;
+  let batasMin = skillValue - 5;
+  let decreasing = true;
 
-});
+  function updateProgress() {
+      if (decreasing) {
+          percentage--;
+          if (percentage <= batasMin) decreasing = false;
+      } else {
+          percentage++;
+          if (percentage >= batasMax) decreasing = true;
+      }
+
+      let offset = 188.4 - (188.4 * percentage) / 100;
+      circle.style.strokeDashoffset = offset;
+      text.textContent = percentage + "%";
+  }
+
+  setInterval(updateProgress, 500);
+}
+animateProgress(".progress-html", "cpuUsageHTML", HTML);
+animateProgress(".progress-css", "cpuUsageCSS", CSSv);
+animateProgress(".progress-js", "cpuUsageJS", JavaScript);
+animateProgress(".progress-node", "cpuUsageNode", NodeJs);
+animateProgress(".progress-react", "cpuUsageReact", React);
+animateProgress(".progress-php", "cpuUsagePHP", PHP);
+
+
 window.addEventListener("scroll", function () {
     let navbar = document.querySelector("header");
     if (window.scrollY > 0) {
@@ -47,7 +56,7 @@ value.forEach((e => e.style.color = 'white'))
 
 document.querySelectorAll('textarea').forEach(e => e.style.color = 'white')
 
-// project slide show
+// project read more
 
 const readMore  = document.querySelector('.readMore');
 const btnReadMore = document.getElementById('btnReadMore');
