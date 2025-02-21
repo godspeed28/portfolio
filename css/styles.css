@@ -371,7 +371,6 @@ textarea::placeholder {
     font-size: small;
     font-weight: bold;
     outline: none;
-    font-family: 'Oswald', cursive;
 }
 
 #nama{
@@ -403,7 +402,6 @@ textarea::placeholder {
 button{
   margin-bottom:20px;
   border-radius: 10px;
-  font-family: 'Oswald', cursive;
 }
 button:hover{
   cursor: pointer;
@@ -564,7 +562,7 @@ button:hover{
     }
     .project{
       font-size: xx-small;
-      width: 30%;
+      width: 100%;
     }
     .form{
       width: 60%;
