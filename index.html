@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <title>Portfolio</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.2/dist/sweetalert2.all.min.js"></script>
+    <title>Albert.codes</title>
+    <link rel="icon" type="image/x-icon" href="img/cube.png">
 </head>
 <body>
 
@@ -46,12 +48,12 @@
                 <div class="container-cube" style="z-index: -1000;">
                 <div class="scene">
                     <div class="cube">
-                        <div class="face back">FULL</div>
-                        <div class="face left">BACK</div>
-                        <div class="face front">FRONT</div>
-                      <div class="face top">BACK</div>
-                      <div class="face bottom">FRONT</div>
-                      <div class="face right">FULL</div>
+                        <div class="face back">Full</div>
+                        <div class="face left">Back</div>
+                        <div class="face front">Front</div>
+                      <div class="face top">Full</div>
+                      <div class="face bottom">Back</div>
+                      <div class="face right">Front</div>
                     </div>
                   </div>
                   <div class="text">End Dev.
@@ -163,10 +165,10 @@
            Get in touch</u></h3></div>
             <div class="container box-shadow">
                 <div class="form box-shadow">
-                    <form action="">
+                    <form id="contactForm" action="">
                        
                     <div> 
-                        <input type="text" name="nama" id="nama" placeholder="Name" autocomplete="off" required>
+                        <input type="text" name="name" id="name" placeholder="Name" autocomplete="off" required>
                     </div>
 
                     <div> 
@@ -174,7 +176,7 @@
                     </div>
 
                     <div> 
-                        <textarea name="pesan" id="pesan" rows="5" cols="30" autocomplete="off" placeholder="Message"></textarea>
+                        <textarea name="message" id="message" rows="5" cols="30" autocomplete="off" placeholder="Message" required></textarea>
                     </div>
 
                     <button type="submit">Send Message</button>
@@ -183,6 +185,37 @@
             </div>
         
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="js/script.js"></script>
+    <script>
+       (function() {
+            emailjs.init("okyksMBrSIxlG56cy"); // Ganti dengan User ID dari EmailJS
+        })();
+
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            emailjs.sendForm("service_m1s0aee", "template_2dqg7x5", this)
+                .then(response => {
+                    Swal.fire({
+                        title: "Berhasil!",
+                        text: "Pesan berhasil dikirim!",
+                        icon: "success",
+                        confirmButtonText: "OK"
+                    }).then(() => {
+                        location.reload();
+                    });
+                })
+                .catch(error => {
+                    Swal.fire({
+                        title: "Gagal!",
+                        text: "Gagal mengirim pesan, coba lagi nanti.",
+                        icon: "error",
+                        confirmButtonText: "OK"
+                    });
+                    console.error("Gagal mengirim pesan:", error);
+                });
+        });
+    </script>
 </body>
 </html>

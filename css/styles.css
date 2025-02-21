@@ -373,12 +373,12 @@ textarea::placeholder {
     outline: none;
 }
 
-#nama{
+#name{
   border: 2px solid #dc3545;
   
 }
 
-#nama:focus{
+#name:focus{
   outline: none;
 }
 
@@ -391,11 +391,11 @@ textarea::placeholder {
   outline: none;
 }
 
-#pesan{
+#message{
   border: 2px solid #507cf6;
 }
 
-#pesan:focus{
+#message:focus{
   outline: none;
 }
 
