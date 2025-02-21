@@ -1,0 +1,612 @@
+body{
+    background-color: #191414;
+    font-family: 'system-ui';
+    color:whitesmoke;
+    box-sizing: border-box;
+}
+
+header {
+  background-color: #191414;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.box-shadow{
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+}
+
+a{
+    color: #ccc;
+    margin:10px;
+    text-decoration:none ;
+    transition: color 0.3s;
+}
+
+ul li{
+    display: inline-block;
+    list-style: none;
+}
+
+a:hover{
+    color:whitesmoke;
+}
+
+.active{
+    color: white;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    width: 100%;
+    /* border:3px solid #ccc; */
+    box-sizing: border-box;
+}
+
+
+.container-img{
+    /* border: 3px solid white; */
+    width: 25%;
+    text-align: center;
+    margin: 10px;
+    height: 100%;
+    
+}
+.medsos{
+  display: flex;
+  margin: 10px;
+  margin-left: 30px;
+  text-align: start;
+  transition: all 0.3s;
+}
+
+.inst{
+  cursor: pointer;
+}
+
+.git{
+  cursor: pointer;
+  margin-left: -20px;
+}
+
+.inst:hover path {
+  fill: red; /* Ubah warna menjadi merah saat hover */
+}
+
+.git:hover path {
+  fill:#ffffff; /* Ubah warna menjadi merah saat hover */
+}
+
+.container-intro{
+    /* border: 3px solid white; */
+    width: 55%;
+    margin: 10px;
+}
+
+.about{
+  /* border: 1px solid white; */
+  padding: 10px;
+  text-align: center;
+}
+
+.container-skills{
+    /* border: 3px solid white; */
+    width: 25%;
+    text-align: center;
+    margin: 10px;
+    height: 100%;
+}
+
+.child{
+  display: flex;
+  justify-content: center;
+}
+
+.num{
+  position: absolute;
+  border-radius: 100%;
+  top: 10;
+  z-index: 1;
+  width: 60px;
+	height: 60px;
+  text-align: center;
+  margin-top: -60px;
+  margin-right: -75px;
+}
+
+.num .HTML span.glow {
+  text-shadow: 0 0 10px rgba(52, 152, 219, 0.8), 0 0 20px rgba(52, 152, 219, 0.6);
+  transform: scale(1.2);
+}
+
+.HTML .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%; /* Sesuaikan dengan ukuran .num */
+  height: 100%; /* Sesuaikan dengan ukuran .num */
+  border-radius: 50%; /* Membuatnya berbentuk lingkaran */
+  border: 4px solid #dc3545;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  animation: circleEffect 2s ease-out forwards;
+}
+
+.CSS .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%; /* Sesuaikan dengan ukuran .num */
+  height: 100%; /* Sesuaikan dengan ukuran .num */
+  border-radius: 50%; /* Membuatnya berbentuk lingkaran */
+  border: 4px solid #507cf6;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  animation: circleEffect 2s ease-out forwards;
+}
+
+.Script .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%; 
+  height: 100%; 
+  border-radius: 50%;
+  border: 4px solid  #f7df1e;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  animation: circleEffect 2s ease-out forwards;
+}
+
+.Node .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%; 
+  height: 100%;
+  border-radius: 50%; 
+  border: 4px solid #8cc84b;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  animation: circleEffect 2s ease-out forwards;
+}
+.React .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%; 
+  height: 100%; 
+  border-radius: 50%;
+  border: 4px solid  #17a2b8;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  animation: circleEffect 2s ease-out forwards;
+}
+.PHP .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%; 
+  height: 100%; 
+  border-radius: 50%;
+  border: 4px solid #8993be;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  animation: circleEffect 2s ease-out forwards;
+}
+
+
+
+.HTML{
+  color: #dc3545;
+  border: 5px solid  #dc3545;
+  background-color: rgba(220, 53, 69, 0.5);
+}
+
+.CSS{
+  color: #507cf6;
+  border: 5px solid #507cf6;
+  background-color: rgba(69, 108, 186, 0.5);
+}
+.React{
+  color: #17a2b8;
+  border: 5px solid #17a2b8;
+  background-color: rgb(23, 162, 184, 0.5);
+}
+
+.Script{
+  color: #f7df1e;
+  border: 5px solid #f7df1e;
+  background-color: rgba(247, 223, 30, 0.5);
+}
+
+.Node{
+  color:#8cc84b;
+  border: 5px solid #8cc84b;
+  background-color: rgba(140, 200, 75, 0.5);
+}
+
+.PHP{
+  color:#8993be;
+  border: 5px solid #8993be;
+  background-color: rgba(137, 147, 190, 0.5);
+}
+
+span{
+  position: absolute;
+  margin-left: -13px;
+  margin-top: 15px;
+}
+
+img{
+  width: 80%;
+  /* border: 3px solid whitesmoke; */
+}
+
+.container-cube{
+  display: flex;
+  border-top: 1px solid white;
+}
+
+.exp, .educ{
+  /* border: 3px solid #ccc; */
+  width: 30%;
+  margin: 10px;
+  text-align: center;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 30px;
+  height: 100%;
+  box-shadow: 0px 0px 5px #ccc;
+}
+
+.exp{
+  display: flex;
+}
+
+.exp-child{
+  width: 100%;
+  font-size: small;
+  margin: 3px;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.blue{
+  border:3px solid #17a2b8;
+  background-color: rgb(23, 162, 184, 0.5) ;
+}
+
+.green{
+  border: 3px solid #8cc84b;
+  background-color:  rgba(140, 200, 75, 0.5);
+}
+
+.red{
+  border: 3px solid #dc3545;
+  background-color: rgba(220, 53, 69, 0.5);
+}
+
+.yellow{
+  border: 3px solid #f7df1e;
+  background-color: rgba(247, 223, 30, 0.5);
+}
+
+.purple{
+  border: 3px solid #8993be;
+  background-color: rgba(137, 147, 190, 0.5);
+}
+.sertif{
+  /* border: 3px solid #ccc; */
+  width: 30%;
+  margin: 20px;
+  position: relative;
+  border-radius: 5px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.none{
+  display: none;
+}
+
+.card-2{
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  flex-wrap: wrap;
+}
+
+.project{
+  /* border: 2px solid #ccc; */
+  width: 40%;
+  margin: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 5px;
+}
+.AryaniGO{
+  border-radius: 10px;
+  transition: opacity 0.3s ease-in-out; 
+}
+.AryaniGO:hover{
+  cursor: pointer;
+  opacity: 0.3;
+}
+.form{
+  /* border: 3px solid #ccc; */
+  width: 30%;
+  margin: 10px;
+  text-align: center;
+}
+
+.form{
+  border-radius: 10px;
+  /* background-color: rgba(204, 204, 204, 0.5); ; */
+}
+
+input, textarea{
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  width: 80%;
+  background-color: transparent;
+  /* border: 3px solid #ccc */
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #ccc; /* Warna placeholder */
+    font-size: small;
+    font-weight: bold;
+    outline: none;
+    font-family: 'Oswald', cursive;
+}
+
+#nama{
+  border: 2px solid #dc3545;
+  
+}
+
+#nama:focus{
+  outline: none;
+}
+
+#email{
+  border: 2px solid #8cc84b;
+}
+
+#email:focus{
+  outline-color: #17a2b8;
+  outline: none;
+}
+
+#pesan{
+  border: 2px solid #507cf6;
+}
+
+#pesan:focus{
+  outline: none;
+}
+
+button{
+  margin-bottom:20px;
+  border-radius: 10px;
+  font-family: 'Oswald', cursive;
+}
+button:hover{
+  cursor: pointer;
+}
+
+/* Animasi efek lingkaran */
+@keyframes circleEffect {
+  0% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(0);
+  }
+  50% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(1.5);
+  }
+}
+
+/* Efek animasi pada huruf */
+@keyframes typing {
+  from {
+      width: 0;
+    }
+    to {
+      width: 80%;
+    }
+  }
+  
+  @keyframes blink {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  .text {
+    margin-top: 85px;
+    margin-left: 30px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    position: relative;
+    animation: typing 4s steps(30) 3s infinite alternate;
+  }
+  
+  .text::after {
+    content: '|';
+    position: absolute;
+    top: 0;
+    font-size: 24px;  /* Sesuaikan ukuran titik dengan teks */
+    color: white;
+    animation: blink 0.75s step-end infinite;
+  }
+  
+.scene {
+    width: 100px;
+    height: 200px;
+    perspective: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cube {
+    width: 100px;
+    height: 100px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(30deg) rotateY(30deg);
+    transition: transform 1s;
+  }
+  
+  .cube:hover {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+  
+  .face {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: rgba(220, 53, 69, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+  }
+
+  .front{
+    background-color: rgba(52, 152, 219, 0.8);
+  }
+  .back{
+    background-color: rgba(220, 53, 69, 0.5);
+  }
+  .right{
+    background-color: rgba(140, 200, 75, 0.5);
+  }
+  .left{
+    background-color: rgba(247, 223, 30, 0.5);
+  }
+  
+  .front  { transform: translateZ(50px); }
+  .back   { transform: rotateY(180deg) translateZ(50px); }
+  .left   { transform: rotateY(-90deg) translateZ(50px); }
+  .right  { transform: rotateY(90deg) translateZ(50px); }
+  .top    { transform: rotateX(90deg) translateZ(50px); }
+  .bottom { transform: rotateX(-90deg) translateZ(50px); }
+
+  @media(max-width: 768px){
+
+    .container-img{
+        display: none;
+    }
+    .container-intro{
+        width: 85%;
+    }
+    .brand{
+      width: 30px; height: 30px;
+    }
+    a{
+      margin:5px;
+    }
+    .img-icon{
+      width: 80px;
+      height: 80px;
+    }
+    .num{
+      width: 40px;
+      height: 40px;
+    }
+    span{
+      margin-left: -15px;
+      margin-top: 8px;
+    }
+    .exp, .educ{
+      width: 100%;
+    }
+    .card-2{
+      width: 100%;
+    }
+    .sertif{
+      width: 30%;
+      font-size: xx-small;
+    }
+    .project{
+      font-size: xx-small;
+      width: 30%;
+    }
+    .form{
+      width: 60%;
+    }
+    .exp{
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .exp-child{
+      width: 80%;
+      height: 50%;
+    }
+    
+    .exp, .educ{
+      padding-bottom: 40px;
+    }
+  }
+  #btnReadMore{
+    font-size: xx-small;
+  }
+
+  /* Tablet (min-width: 601px) dan (max-width: 1024px) */
+@media (min-width: 601px) and (max-width: 1024px){
+  .exp, .educ{
+    width: 100%;
+  }
+  .card-2{
+    width: 80%;
+  }
+  .sertif{
+    width: 30%;
+    font-size: xx-small;
+  }
+  .form{
+    width: 40%;
+  }
+}
+
+  @media only screen and (min-width: 768px){
+    .brand{
+      display: none;
+    }
+  }
+
