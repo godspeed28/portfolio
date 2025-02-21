@@ -582,11 +582,11 @@ button:hover{
     .exp, .educ{
       padding-bottom: 40px;
     }
+    #btnReadMore{
+      font-size: xx-small;
+    }  
   }
-  #btnReadMore{
-    font-size: xx-small;
-  }
-
+ 
   /* Tablet (min-width: 601px) dan (max-width: 1024px) */
 @media (min-width: 601px) and (max-width: 1024px){
   .exp, .educ{
