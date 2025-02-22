@@ -200,7 +200,7 @@ svg{
 
 .circle circle {
   fill: none;
-  stroke-width: 10;
+  stroke-width: 5;
   stroke-linecap: round;
   transition: stroke-dashoffset 0.5s ease-in-out;
 }
@@ -544,10 +544,6 @@ button:hover{
     .img-icon{
       width: 80px;
       height: 80px;
-    }
-    .num{
-      width: 40px;
-      height: 40px;
     }
     span{
       margin-left: -15px;
