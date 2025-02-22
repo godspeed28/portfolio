@@ -335,11 +335,24 @@ img{
 }
 .AryaniGO{
   border-radius: 10px;
+  opacity: 0.3;
   transition: opacity 0.3s ease-in-out; 
 }
 .AryaniGO:hover{
   cursor: pointer;
-  opacity: 0.3;
+  opacity: 1;
+}
+.slider-container {
+  overflow-x: auto;
+  display: flex;
+  scroll-snap-type: x mandatory;
+ 
+}
+       .slider-container img {
+  width: 100%;
+  height: 300px;
+  flex: 0 0 100%;
+  scroll-snap-align: center;
 }
 .form{
   /* border: 3px solid #ccc; */
@@ -408,6 +421,18 @@ button:hover{
   border: none;
   /* text-decoration: underline; */
   color: #0b5ed7;
+}
+.stack{
+  display: flex;
+  justify-content: flex-start;
+  /* border: 2px solid #ccc; */
+  width: 80%;
+}
+
+.stack-child{
+  /* border: 1px solid #ccc; */
+  box-shadow: 0px 4px 10px #000000;
+  width: 10%;
 }
 
 /* Animasi efek lingkaran */
@@ -581,6 +606,9 @@ button:hover{
     }
     #btnReadMore{
       font-size: xx-small;
+    }
+    .slider-container img{
+      height: 200px;
     }  
   }
  

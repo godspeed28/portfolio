@@ -3,103 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CPU Usage Animation</title>
+    <title>Scroll Gambar Pengganti Slide</title>
     <style>
-        body {
+        .slider-container {
+            width: 100%;
+            overflow-x: auto;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #121212;
+            scroll-snap-type: x mandatory;
+            gap: 10px;
+            border: 2px solid black;
+            padding: 10px;
+            scrollbar-width: none; /* Hilangkan scrollbar di Firefox */
         }
 
-        .circle {
-            position: relative;
-            width: 120px;
-            height: 120px;
+        .slider-container::-webkit-scrollbar {
+            display: none; /* Hilangkan scrollbar di Chrome */
         }
 
-        .circle svg {
-            transform: rotate(-90deg);
-        }
-
-        .circle circle {
-            fill: none;
-            stroke-width: 10;
-            stroke-linecap: round;
-            transition: stroke-dasharray 0.5s ease-in-out;
-        }
-
-        .circle .bg {
-            stroke: #333;
-        }
-
-        .circle .progress {
-            stroke: #ffcc00;
-        }
-
-        .percentage {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 24px;
-            font-weight: bold;
-            color: #f7df1e;
-            /* background-color: rgba(247, 223, 30, 0.5); */
-            font-family: Arial, sans-serif;
-        }
-        svg{
-            background-color: rgba(247, 223, 30, 0.5);
-            border-radius: 200px;
+        .slider-container img {
+            width: 100%;
+            flex: 0 0 100%;
+            scroll-snap-align: center;
         }
     </style>
 </head>
 <body>
 
-    <div class="circle">
-        <svg width="120" height="120">
-            <circle class="bg" cx="60" cy="60" r="50" stroke-width="10"></circle>
-            <circle class="progress" cx="60" cy="60" r="50" stroke-width="10"
-                stroke-dasharray="314" stroke-dashoffset="0"></circle>
-        </svg>
-        <div class="percentage" id="cpuUsage"></div>
+    <div class="slider-container">
+        <img src="img/abe.jpg" alt="Gambar 1">
+        <img src="img/cube.png" alt="Gambar 2">
+        <img src="https://via.placeholder.com/600x300/3357ff/ffffff?text=Gambar+3" alt="Gambar 3">
     </div>
-
-    <script>
-       let decreasing = true;
-let circle = document.querySelector(".progress");
-let text = document.getElementById("cpuUsage");
-let percentage = 0; // Default nilai awal
-
-function setInitialPercentage(value) {
-    percentage = value;
-    batasMax = value;
-    batasMin = value - 5; // batasMax mengikuti nilai awal yang diberikan
-    updateProgress(); // Jalankan sekali untuk update UI
-}
-
-function updateProgress() {
-    if (decreasing) {
-        percentage--;
-        if (percentage <= batasMin) decreasing = false;
-    } else {
-        percentage++;
-        if (percentage >= batasMax) decreasing = true;
-    }
-
-    let offset = 314 - (314 * percentage) / 100; // Perhitungan stroke offset
-    circle.style.strokeDashoffset = offset;
-    text.textContent = percentage + "%";
-}
-
-// Panggil fungsi ini untuk mengatur nilai awal
-setInitialPercentage(80); // Misalnya, nilai awal 80
-
-// Jalankan update secara berkala
-setInterval(updateProgress, 500);
-
-    </script>
 
 </body>
 </html>

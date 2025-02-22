@@ -75,3 +75,26 @@ btnReadMore.addEventListener('click', function(){
 
 });
 
+// nav active
+document.addEventListener("DOMContentLoaded", function () {
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  function setActiveNav() {
+      let scrollPosition = window.scrollY;
+
+      sections.forEach((section) => {
+          const sectionTop = section.offsetTop - 60;
+          const sectionHeight = section.offsetHeight;
+
+          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+              navLinks.forEach((link) => link.classList.remove("active"));
+              document.querySelector(`.nav-link[href="#${section.id}"]`).classList.add("active");
+          }
+      });
+  }
+
+  window.addEventListener("scroll", setActiveNav);
+});
+
+
