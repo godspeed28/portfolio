@@ -614,6 +614,14 @@ button:hover{
     }
     .stack-child{
       width: 15%;
+    }
+    .icon-container{
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+    .icon-fot{
+      margin:5px;
     }  
   }
  
@@ -635,11 +643,16 @@ button:hover{
   .project{
     width: 50%;
   }
+ 
 }
 
   @media only screen and (min-width: 768px){
     .brand{
       display: none;
     }
+    .icon-fot{
+      display: none;
+    }
+   
   }
 
