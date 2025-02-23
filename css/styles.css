@@ -335,12 +335,9 @@ img{
 }
 .AryaniGO{
   border-radius: 10px;
-  opacity: 0.3;
-  transition: opacity 0.3s ease-in-out; 
 }
 .AryaniGO:hover{
   cursor: pointer;
-  opacity: 1;
 }
 .slider-container {
   overflow-x: auto;
