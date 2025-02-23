@@ -210,28 +210,28 @@ svg{
 }
 
 .circle .progress-html {
-  stroke-dasharray: 188.4;
-  stroke-dashoffset: 188.4;
+  stroke-dasharray: 150.4;
+  stroke-dashoffset: 150.4;
 }
 .circle .progress-css {
-  stroke-dasharray: 188.4;
-  stroke-dashoffset: 188.4;
+  stroke-dasharray: 150.4;
+  stroke-dashoffset: 150.4;
 }
 .circle .progress-js {
-  stroke-dasharray: 188.4;
-  stroke-dashoffset: 188.4;
+  stroke-dasharray: 150.4;
+  stroke-dashoffset: 150.4;
 }
 .circle .progress-node {
-  stroke-dasharray: 188.4;
-  stroke-dashoffset: 188.4;
+  stroke-dasharray: 150.4;
+  stroke-dashoffset: 150.4;
 }
 .circle .progress-react {
-  stroke-dasharray: 188.4;
-  stroke-dashoffset: 188.4;
+  stroke-dasharray: 150.4;
+  stroke-dashoffset: 150.4;
 }
 .circle .progress-php {
-  stroke-dasharray: 188.4;
-  stroke-dashoffset: 188.4;
+  stroke-dasharray: 150.4;
+  stroke-dashoffset: 150.4;
 }
 
 .percentage {
@@ -434,7 +434,6 @@ button:hover{
   box-shadow: 0px 4px 10px #000000;
   width: 10%;
   border-radius: 5px;
-  height: 45px;
 }
 
 /* Animasi efek lingkaran */
@@ -588,7 +587,7 @@ button:hover{
     }
     .project{
       font-size: xx-small;
-      width: 100%;
+      width: 70%;
     }
     .form{
       width: 60%;
@@ -610,7 +609,11 @@ button:hover{
       font-size: xx-small;
     }
     .slider-container img{
-      height: 200px;
+      height:150px;
+      width: 50px;
+    }
+    .stack-child{
+      width: 15%;
     }  
   }
  
@@ -628,6 +631,9 @@ button:hover{
   }
   .form{
     width: 40%;
+  }
+  .project{
+    width: 50%;
   }
 }
 

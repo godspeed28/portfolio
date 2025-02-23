@@ -1,5 +1,5 @@
 const HTML = 80;
-const CSSv = 85;
+const CSSv = 70;
 const JavaScript = 40;
 const NodeJs = 30;
 const React = 20;
@@ -23,7 +23,7 @@ function animateProgress(circleSelector, textSelector, skillValue) {
           if (percentage >= batasMax) decreasing = true;
       }
 
-      let offset = 188.4 - (188.4 * percentage) / 100;
+      let offset = 150.4 - (150.4 * percentage) / 100;
       circle.style.strokeDashoffset = offset;
       text.textContent = percentage + "%";
   }
