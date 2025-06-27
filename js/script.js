@@ -1,6 +1,4 @@
 // api github
- const username = "godspeed28"; 
-
     function animateProgress(circleSelector, textSelector, skillValue) {
       let circle = document.querySelector(circleSelector);
       let text = document.getElementById(textSelector);
@@ -29,54 +27,31 @@
       setInterval(updateProgress, 500);
     }
 
-    async function getAllLanguages() {
-      const reposRes = await fetch(`/.netlify/functions/github-langs`, {
-        headers: {
-          Authorization: `token ${token}`
-        }
-      });
+  async function getAllLanguages() {
+  const res = await fetch("github.php"); // Panggil PHP backend
+  const data = await res.json();
+  return data;
+}
 
-      const repos = await reposRes.json();
-      const totalLanguages = {};
 
-      for (const repo of repos) {
-        const langUrl = repo.languages_url;
-        const langRes = await fetch(langUrl, {
-          headers: {
-            Authorization: `token ${token}`
-          }
-        });
+ getAllLanguages().then(data => {
+  const total = Object.values(data).reduce((a, b) => a + b, 0);
 
-        const langData = await langRes.json();
+  const HTML = Math.round(((data.HTML || 0) / total) * 100);
+  const CSSv = Math.round(((data.CSS || 0) / total) * 100);
+  const JavaScript = Math.round(((data.JavaScript || 0) / total) * 100);
+  const PHP = Math.round(((data.PHP || 0) / total) * 100);
+  const NodeJs = Math.round(((data.JavaScript || 0) / total) * 100);
+  const React = Math.round(((data.JavaScript || 0) / total) * 100);
 
-        for (const [lang, bytes] of Object.entries(langData)) {
-          const safeLang = lang.replace(/[^a-zA-Z0-9]/g, "");
-          totalLanguages[safeLang] = (totalLanguages[safeLang] || 0) + bytes;
-        }
-      }
+  animateProgress(".progress-html", "cpuUsageHTML", HTML);
+  animateProgress(".progress-css", "cpuUsageCSS", CSSv);
+  animateProgress(".progress-js", "cpuUsageJS", JavaScript);
+  animateProgress(".progress-php", "cpuUsagePHP", PHP);
+  animateProgress(".progress-node", "cpuUsageNode", NodeJs);
+  animateProgress(".progress-react", "cpuUsageReact", React);
+});
 
-      return totalLanguages;
-    }
-
-    getAllLanguages().then(data => {
-      const total = Object.values(data).reduce((a, b) => a + b, 0);
-
-      console.log(data)
-
-      const HTML = Math.round(((data.HTML || 0) / total) * 100);
-      const CSSv = Math.round(((data.CSS || 0) / total) * 100);
-        const JavaScript = Math.round(((data.JavaScript || 0) / total) * 100);
-      const PHP = Math.round(((data.PHP || 0) / total) * 100);
-      const NodeJs = Math.round(((data.JavaScript || 0) / total) * 100);
-      const React = Math.round(((data.JavaScript || 0) / total) * 100);
-
-      animateProgress(".progress-html", "cpuUsageHTML", HTML);
-      animateProgress(".progress-css", "cpuUsageCSS", CSSv);
-      animateProgress(".progress-js", "cpuUsageJS", JavaScript);
-      animateProgress(".progress-php", "cpuUsagePHP", PHP);
-      animateProgress(".progress-node", "cpuUsageNode", NodeJs);
-      animateProgress(".progress-react", "cpuUsageReact", React);
-    });
 
 window.addEventListener("scroll", function () {
     let navbar = document.querySelector("header");
