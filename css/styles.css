@@ -385,19 +385,19 @@ img {
 
 .project {
   /* border: 2px solid #ccc; */
-  width: 40%;
-  margin: 10px;
+  width: 35%;
+  margin: 35px;
   border-radius: 5px;
   margin-bottom: 20px;
   text-align: center;
   padding: 5px;
 }
 
-.AryaniGO {
+.project-img {
   border-radius: 10px;
 }
 
-.AryaniGO:hover {
+.project-img:hover {
   cursor: pointer;
 }
 
@@ -614,11 +614,11 @@ button:hover {
   background-color: rgba(220, 53, 69, 0.5);
 }
 
-.right {
+.front {
   background-color: rgba(52, 152, 219, 0.8);
 }
 
-.front {
+.right {
   background-color: rgba(247, 223, 30, 0.5);
 }
 
@@ -779,4 +779,8 @@ button:hover {
   .project {
     width: 80%;
   }
+}
+
+.text-muted {
+  color: #6c757d !important;
 }

@@ -1,42 +1,83 @@
-const HTML = 80;
-const CSSv = 70;
-const JavaScript = 40;
-const NodeJs = 30;
-const React = 20;
-const PHP = 50;
+// api github
+ const username = "godspeed28"; 
+    const token = "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";   // Ganti dengan token GitHub kamu
 
-function animateProgress(circleSelector, textSelector, skillValue) {
-  let circle = document.querySelector(circleSelector);
-  let text = document.getElementById(textSelector);
-  
-  let percentage = skillValue;
-  let batasMax = skillValue;
-  let batasMin = skillValue - 5;
-  let decreasing = true;
+    function animateProgress(circleSelector, textSelector, skillValue) {
+      let circle = document.querySelector(circleSelector);
+      let text = document.getElementById(textSelector);
 
-  function updateProgress() {
-      if (decreasing) {
+      if (!circle || !text) return;
+
+      let percentage = skillValue;
+      let batasMax = skillValue;
+      let batasMin = Math.max(0, skillValue - 5);
+      let decreasing = true;
+
+      function updateProgress() {
+        if (decreasing) {
           percentage--;
           if (percentage <= batasMin) decreasing = false;
-      } else {
+        } else {
           percentage++;
           if (percentage >= batasMax) decreasing = true;
+        }
+
+        let offset = 150.4 - (150.4 * percentage) / 100;
+        circle.style.strokeDashoffset = offset;
+        text.textContent = percentage + "%";
       }
 
-      let offset = 150.4 - (150.4 * percentage) / 100;
-      circle.style.strokeDashoffset = offset;
-      text.textContent = percentage + "%";
-  }
+      setInterval(updateProgress, 500);
+    }
 
-  setInterval(updateProgress, 500);
-}
-animateProgress(".progress-html", "cpuUsageHTML", HTML);
-animateProgress(".progress-css", "cpuUsageCSS", CSSv);
-animateProgress(".progress-js", "cpuUsageJS", JavaScript);
-animateProgress(".progress-node", "cpuUsageNode", NodeJs);
-animateProgress(".progress-react", "cpuUsageReact", React);
-animateProgress(".progress-php", "cpuUsagePHP", PHP);
+    async function getAllLanguages(username, token) {
+      const reposRes = await fetch(`https://api.github.com/users/${username}/repos`, {
+        headers: {
+          Authorization: `token ${token}`
+        }
+      });
 
+      const repos = await reposRes.json();
+      const totalLanguages = {};
+
+      for (const repo of repos) {
+        const langUrl = repo.languages_url;
+        const langRes = await fetch(langUrl, {
+          headers: {
+            Authorization: `token ${token}`
+          }
+        });
+
+        const langData = await langRes.json();
+
+        for (const [lang, bytes] of Object.entries(langData)) {
+          const safeLang = lang.replace(/[^a-zA-Z0-9]/g, "");
+          totalLanguages[safeLang] = (totalLanguages[safeLang] || 0) + bytes;
+        }
+      }
+
+      return totalLanguages;
+    }
+
+    getAllLanguages(username, token).then(data => {
+      const total = Object.values(data).reduce((a, b) => a + b, 0);
+
+      console.log(data)
+
+      const HTML = Math.round(((data.HTML || 0) / total) * 100);
+      const CSSv = Math.round(((data.CSS || 0) / total) * 100);
+        const JavaScript = Math.round(((data.JavaScript || 0) / total) * 100);
+      const PHP = Math.round(((data.PHP || 0) / total) * 100);
+      const NodeJs = Math.round(((data.JavaScript || 0) / total) * 100);
+      const React = Math.round(((data.JavaScript || 0) / total) * 100);
+
+      animateProgress(".progress-html", "cpuUsageHTML", HTML);
+      animateProgress(".progress-css", "cpuUsageCSS", CSSv);
+      animateProgress(".progress-js", "cpuUsageJS", JavaScript);
+      animateProgress(".progress-php", "cpuUsagePHP", PHP);
+      animateProgress(".progress-node", "cpuUsageNode", NodeJs);
+      animateProgress(".progress-react", "cpuUsageReact", React);
+    });
 
 window.addEventListener("scroll", function () {
     let navbar = document.querySelector("header");
@@ -57,22 +98,25 @@ value.forEach((e => e.style.color = 'white'))
 document.querySelectorAll('textarea').forEach(e => e.style.color = 'white')
 
 // project read more
-
 const readMore  = document.querySelector('.readMore');
-const btnReadMore = document.getElementById('btnReadMore');
+const btnReadMore = document.querySelectorAll('#btnReadMore');
 const AryaniGO = document.querySelector('.AryaniGO');
 const right =  document.querySelector('#right');
 const left =  document.querySelector('#left');
 
-btnReadMore.addEventListener('click', function(){
-  
-  readMore.classList.toggle('none')
-  if(readMore.classList.contains('none')){
-    btnReadMore.innerHTML = 'Read More &raquo;'
-  }else{
-    btnReadMore.innerHTML = `&laquo; Read Less ` 
-  }
+btnReadMore.forEach((btn) => {
+  btn.addEventListener('click', function () {
+    const container = btn.parentElement;
+    const readMore = container.querySelector('.readMore');
 
+    readMore.classList.toggle('none');
+    
+    if (readMore.classList.contains('none')) {
+      btn.innerHTML = 'Read More &raquo;';
+    } else {
+      btn.innerHTML = '&laquo; Read Less';
+    }
+  });
 });
 
 // nav active
@@ -97,4 +141,25 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", setActiveNav);
 });
 
+// menghitung umur
+function hitungUmur(tanggalLahir) {
+    const sekarang = new Date();
+    const lahir = new Date(tanggalLahir);
+
+    let umur = sekarang.getFullYear() - lahir.getFullYear();
+    const bulan = sekarang.getMonth() - lahir.getMonth();
+    const hari = sekarang.getDate() - lahir.getDate();
+
+    if (bulan < 0 || (bulan === 0 && hari < 0)) {
+      umur--;
+    }
+
+    return umur;
+  }
+
+  // Ambil elemen dan tanggal lahir dari atribut
+  const ageSpan = document.getElementById('age');
+  const tanggalLahir = ageSpan.dataset.birthdate;
+  const umur = hitungUmur(tanggalLahir);
+  ageSpan.textContent = umur;
 
