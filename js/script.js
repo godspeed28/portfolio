@@ -1,6 +1,5 @@
 // api github
  const username = "godspeed28"; 
-    const token = "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";   // Ganti dengan token GitHub kamu
 
     function animateProgress(circleSelector, textSelector, skillValue) {
       let circle = document.querySelector(circleSelector);
@@ -30,8 +29,8 @@
       setInterval(updateProgress, 500);
     }
 
-    async function getAllLanguages(username, token) {
-      const reposRes = await fetch(`https://api.github.com/users/${username}/repos`, {
+    async function getAllLanguages() {
+      const reposRes = await fetch(`/.netlify/functions/github-langs`, {
         headers: {
           Authorization: `token ${token}`
         }
@@ -59,7 +58,7 @@
       return totalLanguages;
     }
 
-    getAllLanguages(username, token).then(data => {
+    getAllLanguages().then(data => {
       const total = Object.values(data).reduce((a, b) => a + b, 0);
 
       console.log(data)
