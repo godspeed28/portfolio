@@ -61,7 +61,7 @@ async function getAllLanguages(username) {
 }
 
 getAllLanguages("godspeed28").then((data) => {
-  console.log("Data:", data);
+  // console.log("Data:", data);
 
   const total = Object.values(data).reduce((a, b) => a + b, 0);
 
