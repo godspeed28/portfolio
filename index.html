@@ -4,12 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.2/dist/sweetalert2.all.min.js"></script>
     <title>Albert.codes</title>
     <link rel="icon" type="image/x-icon" href="img/cube.png" />
   </head>
   <body>
-    <header>
+    <header data-aos="fade" data-aos-delay="300">
       <nav>
         <a href=""
           ><img
@@ -27,7 +31,7 @@
     </header>
 
     <main>
-      <section id="home">
+      <section id="home" data-aos="fade-down" data-aos-delay="500">
         <div class="container box-shadow">
           <div class="container-img">
             <img
@@ -139,7 +143,7 @@
               </div>
             </div>
           </div>
-          <div class="container-intro">
+          <div class="container-intro" data-aos="fade" data-aos-delay="1000">
             <p>
               Hello, let me introduce myself — my name is <b>Albert Kolin</b>!
               I’m originally from <b>East Nusa Tenggara</b> and I am currently
@@ -163,7 +167,7 @@
 
             <!-- download="Albert_Kolin_CV.pdf" -->
             <div class="container-cube" style="z-index: -1000">
-              <div class="scene">
+              <div class="scene" data-aos="fade-down" data-aos-delay="1800">
                 <div class="cube">
                   <div class="face back">Front</div>
                   <div class="face left">Back</div>
@@ -183,12 +187,16 @@
       </section>
       <!-- <hr> -->
       <section id="about">
-        <div class="about">
+        <div class="about" data-aos="fade-up" data-aos-duration="1000">
           <h3><u>Skills</u></h3>
           <p class="text-muted">Technologies and tools I've worked with</p>
         </div>
         <div class="container box-shadow">
-          <div class="container-skills">
+          <div
+            class="container-skills"
+            data-aos="fade-right"
+            data-aos-delay="300"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="img-icon"
@@ -237,12 +245,16 @@
             <div class="child">
               <h3>HTML</h3>
               <div
+                data-aos="zoom-in"
+                data-aos-delay="500"
                 class="circle"
                 style="position: absolute; margin-top: -85px; margin-left: 75px"
               >
                 <svg class="html-bg" width="70" height="70">
                   <circle class="bg" cx="35" cy="35" r="25"></circle>
                   <circle
+                    data-aos="fade"
+                    data-aos-delay="1000"
                     class="progress-html html-color"
                     cx="35"
                     cy="35"
@@ -253,7 +265,7 @@
               </div>
             </div>
           </div>
-          <div class="container-skills">
+          <div class="container-skills" data-aos="fade-up" data-aos-delay="600">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
@@ -304,10 +316,14 @@
               <div
                 class="circle"
                 style="position: absolute; margin-top: -85px; margin-left: 75px"
+                data-aos="zoom-in"
+                data-aos-delay="800"
               >
                 <svg class="css-bg" width="70" height="70">
                   <circle class="bg" cx="35" cy="35" r="25"></circle>
                   <circle
+                    data-aos="fade"
+                    data-aos-delay="1600"
                     class="progress-css css-color"
                     cx="35"
                     cy="35"
@@ -318,7 +334,11 @@
               </div>
             </div>
           </div>
-          <div class="container-skills">
+          <div
+            class="container-skills"
+            data-aos="fade-left"
+            data-aos-delay="900"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="img-icon"
@@ -358,10 +378,14 @@
               <div
                 class="circle"
                 style="position: absolute; margin-top: -85px; margin-left: 75px"
+                data-aos="zoom-in"
+                data-aos-delay="1200"
               >
                 <svg class="js-bg" width="70" height="70">
                   <circle class="bg" cx="35" cy="35" r="25"></circle>
                   <circle
+                    data-aos="fade"
+                    data-aos-delay="2400"
                     class="progress-js js-color"
                     cx="35"
                     cy="35"
@@ -372,7 +396,11 @@
               </div>
             </div>
           </div>
-          <div class="container-skills">
+          <div
+            class="container-skills"
+            data-aos="fade-right"
+            data-aos-delay="1200"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="img-icon"
@@ -413,6 +441,8 @@
               <div
                 class="circle"
                 style="position: absolute; margin-top: -85px; margin-left: 75px"
+                data-aos="zoom-in"
+                data-aos-delay="1400"
               >
                 <svg class="node-bg" width="70" height="70">
                   <circle class="bg" cx="35" cy="35" r="25"></circle>
@@ -421,13 +451,19 @@
                     cx="35"
                     cy="35"
                     r="25"
+                    data-aos="fade"
+                    data-aos-delay="2800"
                   ></circle>
                 </svg>
                 <div class="percentage node-color" id="cpuUsageNode">0%</div>
               </div>
             </div>
           </div>
-          <div class="container-skills">
+          <div
+            class="container-skills"
+            data-aos="fade-up"
+            data-aos-delay="1500"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="img-icon"
@@ -482,6 +518,8 @@
               <div
                 class="circle"
                 style="position: absolute; margin-top: -85px; margin-left: 75px"
+                data-aos="zoom-in"
+                data-aos-delay="1700"
               >
                 <svg class="react-bg" width="70" height="70">
                   <circle class="bg" cx="35" cy="35" r="25"></circle>
@@ -490,13 +528,19 @@
                     cx="35"
                     cy="35"
                     r="25"
+                    data-aos="fade"
+                    data-aos-delay="3400"
                   ></circle>
                 </svg>
                 <div class="percentage react-color" id="cpuUsageReact">0%</div>
               </div>
             </div>
           </div>
-          <div class="container-skills">
+          <div
+            class="container-skills"
+            data-aos="fade-left"
+            data-aos-delay="1800"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="img-icon"
@@ -560,10 +604,14 @@
               <div
                 class="circle"
                 style="position: absolute; margin-top: -85px; margin-left: 75px"
+                data-aos="zoom-in"
+                data-aos-delay="2000"
               >
                 <svg class="php-bg" width="70" height="70">
                   <circle class="bg" cx="35" cy="35" r="25"></circle>
                   <circle
+                    data-aos="fade"
+                    data-aos-delay="4000"
                     class="progress-php php-color"
                     cx="35"
                     cy="35"
@@ -577,13 +625,16 @@
         </div>
       </section>
       <section id="project">
-        <div class="about">
+        <div class="about" data-aos="fade-up" data-aos-duration="1000">
           <h3><u>Project Showcase</u></h3>
           <p class="text-muted">Explore my recent web development projects</p>
         </div>
+
         <div class="container box-shadow">
-          <div class="project">
+          <!-- Project 1 -->
+          <div class="project" data-aos="fade-up" data-aos-delay="100">
             <div class="slider-container">
+              <!-- Gambar proyek -->
               <img
                 src="img/AryaniGO/Home.jpg"
                 alt="Aryani GO"
@@ -627,28 +678,34 @@
             </div>
             <div class="stack">
               <div class="stack-child">
-                <img src="img/php.svg" height="30" width="30" alt="" />
+                <img src="img/php.svg" height="30" width="30" alt="PHP" />
               </div>
               <div class="stack-child">
-                <img src="img/bootstrap.svg" height="30" width="30" alt="" />
+                <img
+                  src="img/bootstrap.svg"
+                  height="30"
+                  width="30"
+                  alt="Bootstrap"
+                />
               </div>
               <div class="stack-child">
-                <img src="img/js.svg" height="30" width="30" alt="" />
+                <img src="img/js.svg" height="30" width="30" alt="JavaScript" />
               </div>
               <div class="stack-child">
-                <img src="img/mysql.svg" height="30" width="30" alt="" />
+                <img src="img/mysql.svg" height="30" width="30" alt="MySQL" />
               </div>
             </div>
             <p>
               Aryani GO adalah sebuah platform berbasis web yang dikembangkan
-              untuk mengelola pemesanan dan pengantaran makanan secara
-              digital.<a
+              untuk mengelola pemesanan dan pengantaran makanan secara digital.
+              <a
                 href="https://github.com/goodsped/Ariani-Restourant"
                 style="color: #0d6efd"
                 target="_blank"
                 rel="noopener noreferrer"
-                >GitHub</a
               >
+                GitHub
+              </a>
             </p>
             <button
               type="button"
@@ -663,7 +720,9 @@
               pesanan, pembayaran online, serta integrasi pengiriman.
             </p>
           </div>
-          <div class="project">
+
+          <!-- Project 2 -->
+          <div class="project" data-aos="fade-up" data-aos-delay="200">
             <div class="slider-container">
               <img
                 src="img/SpinCycle/Home.png"
@@ -703,19 +762,24 @@
             </div>
             <div class="stack">
               <div class="stack-child">
-                <img src="img/ci4.svg" width="25" height="25" alt="" />
+                <img src="img/ci4.svg" width="25" height="25" alt="CI4" />
               </div>
               <div class="stack-child">
-                <img src="img/bootstrap.svg" width="30" height="30" alt="" />
+                <img
+                  src="img/bootstrap.svg"
+                  width="30"
+                  height="30"
+                  alt="Bootstrap"
+                />
               </div>
               <div class="stack-child">
-                <img src="img/jquery.svg" width="25" height="25" alt="" />
+                <img src="img/jquery.svg" width="25" height="25" alt="jQuery" />
               </div>
               <div class="stack-child">
-                <img src="img/js.svg" height="30" width="30" alt="" />
+                <img src="img/js.svg" height="30" width="30" alt="JavaScript" />
               </div>
               <div class="stack-child">
-                <img src="img/mysql.svg" height="30" width="30" alt="" />
+                <img src="img/mysql.svg" height="30" width="30" alt="MySQL" />
               </div>
             </div>
             <p>
@@ -727,8 +791,9 @@
                 style="color: #0d6efd"
                 target="_blank"
                 rel="noopener noreferrer"
-                >GitHub</a
               >
+                GitHub
+              </a>
             </p>
             <button
               type="button"
@@ -745,7 +810,9 @@
               halaman checkout yang terintegrasi.
             </p>
           </div>
-          <div class="project">
+
+          <!-- Project 3 -->
+          <div class="project" data-aos="fade-up" data-aos-delay="300">
             <div class="slider-container">
               <img
                 src="img/PredictUMKM/Dashboard.png"
@@ -785,16 +852,26 @@
             </div>
             <div class="stack">
               <div class="stack-child">
-                <img src="img/django.svg" width="30" height="30" alt="" />
+                <img src="img/django.svg" width="30" height="30" alt="Django" />
               </div>
               <div class="stack-child">
-                <img src="img/xgboost.svg" width="30" height="30" alt="" />
+                <img
+                  src="img/xgboost.svg"
+                  width="30"
+                  height="30"
+                  alt="XGBoost"
+                />
               </div>
               <div class="stack-child">
-                <img src="img/bootstrap.svg" width="30" height="30" alt="" />
+                <img
+                  src="img/bootstrap.svg"
+                  width="30"
+                  height="30"
+                  alt="Bootstrap"
+                />
               </div>
               <div class="stack-child">
-                <img src="img/js.svg" height="30" width="30" alt="" />
+                <img src="img/js.svg" height="30" width="30" alt="JavaScript" />
               </div>
             </div>
             <p>
@@ -807,8 +884,9 @@
                 style="color: #0d6efd"
                 target="_blank"
                 rel="noopener noreferrer"
-                >GitHub</a
               >
+                GitHub
+              </a>
             </p>
             <button
               type="button"
@@ -828,11 +906,12 @@
           </div>
         </div>
       </section>
+
       <section id="contact">
-        <div class="about">
+        <div class="about" data-aos="fade-up">
           <h3>
-            <u
-              ><svg
+            <u>
+              <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 width="40"
@@ -843,52 +922,65 @@
                   d="M2.5 11.5L21.6 2.2c.8-.4 1.5.3 1.3 1.2l-3 17.1c-.2 1-1.3 1.5-2.1.9l-5.5-4.5-3.9 3.8c-.6.6-1.6.3-1.9-.5l-3.3-7.1c-.4-.7-.1-1.5.5-1.8zM5 12l3 5.8 3.3-3.2L5 12zm4.8 2L18 18l2.2-12.8L5 12l4.8 2z"
                 />
               </svg>
-              Get in touch</u
-            >
+              Get in touch
+            </u>
           </h3>
         </div>
-        <div class="container box-shadow">
-          <div class="form box-shadow" style="margin-bottom: 25px">
+
+        <div
+          class="container box-shadow"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <div
+            class="form box-shadow"
+            style="margin-bottom: 25px"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
             <form id="contactForm">
-              <div>
+              <div data-aos="fade-right" data-aos-delay="300">
                 <input
                   type="text"
                   name="name"
                   id="name"
-                  placeholder="Name"
+                  placeholder="Your Name"
                   autocomplete="off"
                   required
                 />
               </div>
 
-              <div>
+              <div data-aos="fade-left" data-aos-delay="400">
                 <input
                   type="email"
                   name="email"
                   id="email"
-                  placeholder="Email"
+                  placeholder="Your Email"
                   autocomplete="off"
                   required
                 />
               </div>
 
-              <div>
+              <div data-aos="fade-up" data-aos-delay="500">
                 <textarea
                   name="message"
                   id="message"
                   rows="5"
                   cols="30"
+                  placeholder="Your Message"
                   autocomplete="off"
-                  placeholder="Message"
                   required
                 ></textarea>
               </div>
 
-              <button type="submit">Send Message</button>
+              <div data-aos="fade-up" data-aos-delay="600">
+                <button type="submit">Send Message</button>
+              </div>
             </form>
           </div>
         </div>
       </section>
+
       <section id="contact">
         <div class="container box-shadow">
           <footer>
@@ -1003,5 +1095,10 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/email.js"></script>
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>

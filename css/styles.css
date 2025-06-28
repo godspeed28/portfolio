@@ -577,74 +577,94 @@ button:hover {
   align-items: center;
 }
 
-.cube {
-  width: 100px;
-  height: 100px;
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
-  position: relative;
-  transform-style: preserve-3d;
-  transform: rotateX(30deg) rotateY(30deg);
-  transition: transform 1s;
-}
+  .cube {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 1s;
+        transform: rotateX(30deg) rotateY(30deg); /* sisi depan lebih dominan */
+      }
+      .cube:hover {
+        transform: rotateX(360deg) rotateY(360deg);
+      }
+      .face {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 14px;
+        opacity: 0;
+        animation: moveIn 0.6s forwards;
+      }
 
-.cube:hover {
-  transform: rotateX(360deg) rotateY(360deg);
-}
+      .front {
+        animation-name: moveInFront;
+        animation-delay: 0s;
+      }
+      .back {
+        animation-name: moveInBack;
+        animation-delay: 2.3s;
+      }
+      .right {
+        animation-name: moveInRight;
+        animation-delay: 2.6s;
+      }
+      .left {
+        animation-name: moveInLeft;
+        animation-delay: 2.9s;
+      }
+      .top {
+        animation-name: moveInTop;
+        animation-delay: 3.2s;
+      }
+      .bottom {
+        animation-name: moveInBottom;
+        animation-delay: 3.5s;
+      }
 
-.face {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  background: rgba(220, 53, 69, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  color: white;
-  border: 2px solid #ccc;
-}
-
-.left {
-  background-color: rgba(140, 200, 75, 0.5);
-}
-
-.back {
-  background-color: rgba(220, 53, 69, 0.5);
-}
-
-.front {
-  background-color: rgba(52, 152, 219, 0.8);
-}
-
-.right {
-  background-color: rgba(247, 223, 30, 0.5);
-}
-
-.front {
-  transform: translateZ(50px);
-}
-
-.back {
-  transform: rotateY(180deg) translateZ(50px);
-}
-
-.left {
-  transform: rotateY(-90deg) translateZ(50px);
-}
-
-.right {
-  transform: rotateY(90deg) translateZ(50px);
-}
-
-.top {
-  transform: rotateX(90deg) translateZ(50px);
-}
-
-.bottom {
-  transform: rotateX(-90deg) translateZ(50px);
-}
+      @keyframes moveInFront {
+        to {
+          transform: translateZ(50px);
+          opacity: 1;
+        }
+      }
+      @keyframes moveInBack {
+        to {
+          transform: rotateY(180deg) translateZ(50px);
+          opacity: 1;
+        }
+      }
+      @keyframes moveInRight {
+        to {
+          transform: rotateY(90deg) translateZ(50px);
+          opacity: 1;
+        }
+      }
+      @keyframes moveInLeft {
+        to {
+          transform: rotateY(-90deg) translateZ(50px);
+          opacity: 1;
+        }
+      }
+      @keyframes moveInTop {
+        to {
+          transform: rotateX(90deg) translateZ(50px);
+          opacity: 1;
+        }
+      }
+      @keyframes moveInBottom {
+        to {
+          transform: rotateX(-90deg) translateZ(50px);
+          opacity: 1;
+        }
+      }
 
 @media(max-width: 768px) {
 
