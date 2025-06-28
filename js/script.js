@@ -60,17 +60,22 @@ async function getAllLanguages(username) {
   }
 }
 
-getAllLanguages("goodsped28").then((data) => {
+getAllLanguages("godspeed28").then((data) => {
+  console.log("Data:", data);
+
   const total = Object.values(data).reduce((a, b) => a + b, 0);
 
-  console.log(data);
+  if (total === 0) {
+    console.warn("Total byte 0, kemungkinan data kosong.");
+    return; // stop eksekusi
+  }
 
   const HTML = Math.round(((data.HTML || 0) / total) * 100);
   const CSSv = Math.round(((data.CSS || 0) / total) * 100);
   const JavaScript = Math.round(((data.JavaScript || 0) / total) * 100);
   const PHP = Math.round(((data.PHP || 0) / total) * 100);
-  const NodeJs = Math.round(((data.JavaScript || 0) / total) * 100);
-  const React = Math.round(((data.JavaScript || 0) / total) * 100);
+  const NodeJs = JavaScript; // masih dummy
+  const React = JavaScript; // masih dummy
 
   animateProgress(".progress-html", "cpuUsageHTML", HTML);
   animateProgress(".progress-css", "cpuUsageCSS", CSSv);
