@@ -1,4 +1,7 @@
 // api github
+const username = "godspeed28";
+const token =
+  "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"; // Ganti dengan token GitHub kamu
 
 function animateProgress(circleSelector, textSelector, skillValue) {
   let circle = document.querySelector(circleSelector);
@@ -28,54 +31,49 @@ function animateProgress(circleSelector, textSelector, skillValue) {
   setInterval(updateProgress, 500);
 }
 
-async function getAllLanguages(username) {
-  try {
-    const reposRes = await fetch(
-      `https://api.github.com/users/${username}/repos`
-    );
-    if (!reposRes.ok) {
-      const err = await reposRes.json();
-      console.error("GitHub API error:", err.message);
-      return {};
+async function getAllLanguages(username, token) {
+  const reposRes = await fetch(
+    `https://api.github.com/users/${username}/repos`,
+    {
+      headers: {
+        Authorization: `token ${token}`,
+      },
     }
+  );
 
-    const repos = await reposRes.json();
-    const totalLanguages = {};
+  const repos = await reposRes.json();
+  const totalLanguages = {};
 
-    for (const repo of repos) {
-      const langRes = await fetch(repo.languages_url);
-      if (!langRes.ok) continue;
+  for (const repo of repos) {
+    const langUrl = repo.languages_url;
+    const langRes = await fetch(langUrl, {
+      headers: {
+        Authorization: `token ${token}`,
+      },
+    });
 
-      const langData = await langRes.json();
-      for (const [lang, bytes] of Object.entries(langData)) {
-        const safeLang = lang.replace(/[^a-zA-Z0-9]/g, "");
-        totalLanguages[safeLang] = (totalLanguages[safeLang] || 0) + bytes;
-      }
+    const langData = await langRes.json();
+
+    for (const [lang, bytes] of Object.entries(langData)) {
+      const safeLang = lang.replace(/[^a-zA-Z0-9]/g, "");
+      totalLanguages[safeLang] = (totalLanguages[safeLang] || 0) + bytes;
     }
-
-    return totalLanguages;
-  } catch (error) {
-    console.error("Error:", error);
-    return {};
   }
+
+  return totalLanguages;
 }
 
-getAllLanguages("godspeed28").then((data) => {
-  // console.log("Data:", data);
-
+getAllLanguages(username, token).then((data) => {
   const total = Object.values(data).reduce((a, b) => a + b, 0);
 
-  if (total === 0) {
-    console.warn("Total byte 0, kemungkinan data kosong.");
-    return; // stop eksekusi
-  }
+  console.log(data);
 
   const HTML = Math.round(((data.HTML || 0) / total) * 100);
   const CSSv = Math.round(((data.CSS || 0) / total) * 100);
   const JavaScript = Math.round(((data.JavaScript || 0) / total) * 100);
   const PHP = Math.round(((data.PHP || 0) / total) * 100);
-  const NodeJs = JavaScript; // masih dummy
-  const React = JavaScript; // masih dummy
+  const NodeJs = Math.round(((data.JavaScript || 0) / total) * 100);
+  const React = Math.round(((data.JavaScript || 0) / total) * 100);
 
   animateProgress(".progress-html", "cpuUsageHTML", HTML);
   animateProgress(".progress-css", "cpuUsageCSS", CSSv);
