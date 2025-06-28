@@ -1,41 +1,69 @@
 // api github
-    function animateProgress(circleSelector, textSelector, skillValue) {
-      let circle = document.querySelector(circleSelector);
-      let text = document.getElementById(textSelector);
 
-      if (!circle || !text) return;
+function animateProgress(circleSelector, textSelector, skillValue) {
+  let circle = document.querySelector(circleSelector);
+  let text = document.getElementById(textSelector);
 
-      let percentage = skillValue;
-      let batasMax = skillValue;
-      let batasMin = Math.max(0, skillValue - 5);
-      let decreasing = true;
+  if (!circle || !text) return;
 
-      function updateProgress() {
-        if (decreasing) {
-          percentage--;
-          if (percentage <= batasMin) decreasing = false;
-        } else {
-          percentage++;
-          if (percentage >= batasMax) decreasing = true;
-        }
+  let percentage = skillValue;
+  let batasMax = skillValue;
+  let batasMin = Math.max(0, skillValue - 5);
+  let decreasing = true;
 
-        let offset = 150.4 - (150.4 * percentage) / 100;
-        circle.style.strokeDashoffset = offset;
-        text.textContent = percentage + "%";
-      }
-
-      setInterval(updateProgress, 500);
+  function updateProgress() {
+    if (decreasing) {
+      percentage--;
+      if (percentage <= batasMin) decreasing = false;
+    } else {
+      percentage++;
+      if (percentage >= batasMax) decreasing = true;
     }
 
-  async function getAllLanguages() {
-  const res = await fetch("github.php"); // Panggil PHP backend
-  const data = await res.json();
-  return data;
+    let offset = 150.4 - (150.4 * percentage) / 100;
+    circle.style.strokeDashoffset = offset;
+    text.textContent = percentage + "%";
+  }
+
+  setInterval(updateProgress, 500);
 }
 
+async function getAllLanguages(username) {
+  try {
+    const reposRes = await fetch(
+      `https://api.github.com/users/${username}/repos`
+    );
+    if (!reposRes.ok) {
+      const err = await reposRes.json();
+      console.error("GitHub API error:", err.message);
+      return {};
+    }
 
- getAllLanguages().then(data => {
+    const repos = await reposRes.json();
+    const totalLanguages = {};
+
+    for (const repo of repos) {
+      const langRes = await fetch(repo.languages_url);
+      if (!langRes.ok) continue;
+
+      const langData = await langRes.json();
+      for (const [lang, bytes] of Object.entries(langData)) {
+        const safeLang = lang.replace(/[^a-zA-Z0-9]/g, "");
+        totalLanguages[safeLang] = (totalLanguages[safeLang] || 0) + bytes;
+      }
+    }
+
+    return totalLanguages;
+  } catch (error) {
+    console.error("Error:", error);
+    return {};
+  }
+}
+
+getAllLanguages("goodsped28").then((data) => {
   const total = Object.values(data).reduce((a, b) => a + b, 0);
+
+  console.log(data);
 
   const HTML = Math.round(((data.HTML || 0) / total) * 100);
   const CSSv = Math.round(((data.CSS || 0) / total) * 100);
@@ -52,43 +80,42 @@
   animateProgress(".progress-react", "cpuUsageReact", React);
 });
 
-
 window.addEventListener("scroll", function () {
-    let navbar = document.querySelector("header");
-    if (window.scrollY > 0) {
-      navbar.classList.add("box-shadow");
-    } else {
-      navbar.classList.remove("box-shadow");
-    }
-  });
+  let navbar = document.querySelector("header");
+  if (window.scrollY > 0) {
+    navbar.classList.add("box-shadow");
+  } else {
+    navbar.classList.remove("box-shadow");
+  }
+});
 
-const brand = document.querySelector('.brand');  
-const img = document.querySelector('.container-img');
+const brand = document.querySelector(".brand");
+const img = document.querySelector(".container-img");
 
 // form & textare
-const value = document.querySelectorAll('input')
-value.forEach((e => e.style.color = 'white'))
+const value = document.querySelectorAll("input");
+value.forEach((e) => (e.style.color = "white"));
 
-document.querySelectorAll('textarea').forEach(e => e.style.color = 'white')
+document.querySelectorAll("textarea").forEach((e) => (e.style.color = "white"));
 
 // project read more
-const readMore  = document.querySelector('.readMore');
-const btnReadMore = document.querySelectorAll('#btnReadMore');
-const AryaniGO = document.querySelector('.AryaniGO');
-const right =  document.querySelector('#right');
-const left =  document.querySelector('#left');
+const readMore = document.querySelector(".readMore");
+const btnReadMore = document.querySelectorAll("#btnReadMore");
+const AryaniGO = document.querySelector(".AryaniGO");
+const right = document.querySelector("#right");
+const left = document.querySelector("#left");
 
 btnReadMore.forEach((btn) => {
-  btn.addEventListener('click', function () {
+  btn.addEventListener("click", function () {
     const container = btn.parentElement;
-    const readMore = container.querySelector('.readMore');
+    const readMore = container.querySelector(".readMore");
 
-    readMore.classList.toggle('none');
-    
-    if (readMore.classList.contains('none')) {
-      btn.innerHTML = 'Read More &raquo;';
+    readMore.classList.toggle("none");
+
+    if (readMore.classList.contains("none")) {
+      btn.innerHTML = "Read More &raquo;";
     } else {
-      btn.innerHTML = '&laquo; Read Less';
+      btn.innerHTML = "&laquo; Read Less";
     }
   });
 });
@@ -99,17 +126,22 @@ document.addEventListener("DOMContentLoaded", function () {
   const navLinks = document.querySelectorAll(".nav-link");
 
   function setActiveNav() {
-      let scrollPosition = window.scrollY;
+    let scrollPosition = window.scrollY;
 
-      sections.forEach((section) => {
-          const sectionTop = section.offsetTop - 60;
-          const sectionHeight = section.offsetHeight;
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 60;
+      const sectionHeight = section.offsetHeight;
 
-          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-              navLinks.forEach((link) => link.classList.remove("active"));
-              document.querySelector(`.nav-link[href="#${section.id}"]`).classList.add("active");
-          }
-      });
+      if (
+        scrollPosition >= sectionTop &&
+        scrollPosition < sectionTop + sectionHeight
+      ) {
+        navLinks.forEach((link) => link.classList.remove("active"));
+        document
+          .querySelector(`.nav-link[href="#${section.id}"]`)
+          .classList.add("active");
+      }
+    });
   }
 
   window.addEventListener("scroll", setActiveNav);
@@ -117,23 +149,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // menghitung umur
 function hitungUmur(tanggalLahir) {
-    const sekarang = new Date();
-    const lahir = new Date(tanggalLahir);
+  const sekarang = new Date();
+  const lahir = new Date(tanggalLahir);
 
-    let umur = sekarang.getFullYear() - lahir.getFullYear();
-    const bulan = sekarang.getMonth() - lahir.getMonth();
-    const hari = sekarang.getDate() - lahir.getDate();
+  let umur = sekarang.getFullYear() - lahir.getFullYear();
+  const bulan = sekarang.getMonth() - lahir.getMonth();
+  const hari = sekarang.getDate() - lahir.getDate();
 
-    if (bulan < 0 || (bulan === 0 && hari < 0)) {
-      umur--;
-    }
-
-    return umur;
+  if (bulan < 0 || (bulan === 0 && hari < 0)) {
+    umur--;
   }
 
-  // Ambil elemen dan tanggal lahir dari atribut
-  const ageSpan = document.getElementById('age');
-  const tanggalLahir = ageSpan.dataset.birthdate;
-  const umur = hitungUmur(tanggalLahir);
-  ageSpan.textContent = umur;
+  return umur;
+}
 
+// Ambil elemen dan tanggal lahir dari atribut
+const ageSpan = document.getElementById("age");
+const tanggalLahir = ageSpan.dataset.birthdate;
+const umur = hitungUmur(tanggalLahir);
+ageSpan.textContent = umur;
