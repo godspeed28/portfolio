@@ -34,7 +34,7 @@ async function fetchLanguages() {
     if (!res.ok) throw new Error("Failed to fetch");
 
     const data = await res.json();
-    console.log("Languages data from serverless function:", data);
+    // console.log("Languages data from serverless function:", data);
 
     const total = Object.values(data).reduce((a, b) => a + b, 0);
 

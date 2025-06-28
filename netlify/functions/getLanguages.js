@@ -6,7 +6,7 @@ exports.handler = async function (event, context) {
   const username = "godspeed28";
   const token = process.env.GITHUB_TOKEN;
 
-  console.log("Token:", token ? "Exists" : "Missing");
+  //   console.log("Token:", token ? "Exists" : "Missing");
 
   if (!token) {
     return {
