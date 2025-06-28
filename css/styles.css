@@ -71,7 +71,7 @@ a:hover {
   color: blue;
   text-decoration: none;
   /* Hilangkan underline bawaan */
-  background-image: linear-gradient(to right, red, orange, yellow, green, cyan, blue, violet);
+  background-image: linear-gradient(to right, red,red);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200% 200%;
@@ -87,7 +87,7 @@ a:hover {
   bottom: -2px;
   width: 100%;
   height: 2px;
-  background-image: linear-gradient(to right, red, orange, yellow, green, cyan, blue, violet);
+  background-image: linear-gradient(to right, red, black);
   background-size: 200% 200%;
   transition: background-position 0.5s ease-in-out;
 }
@@ -578,93 +578,86 @@ button:hover {
 }
 
   .cube {
-        width: 100px;
-        height: 100px;
-        position: relative;
-        transform-style: preserve-3d;
-        transition: transform 1s;
-        transform: rotateX(30deg) rotateY(30deg); /* sisi depan lebih dominan */
-      }
-      .cube:hover {
-        transform: rotateX(360deg) rotateY(360deg);
-      }
-      .face {
-        position: absolute;
-        width: 100px;
-        height: 100px;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-weight: bold;
-        font-size: 14px;
-        opacity: 0;
-        animation: moveIn 0.6s forwards;
-      }
+  width: 100px;
+  height: 100px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  transform: rotateX(0deg) rotateY(0deg);
+}
 
-      .front {
-        animation-name: moveInFront;
-        animation-delay: 0s;
-      }
-      .back {
-        animation-name: moveInBack;
-        animation-delay: 2.3s;
-      }
-      .right {
-        animation-name: moveInRight;
-        animation-delay: 2.6s;
-      }
-      .left {
-        animation-name: moveInLeft;
-        animation-delay: 2.9s;
-      }
-      .top {
-        animation-name: moveInTop;
-        animation-delay: 3.2s;
-      }
-      .bottom {
-        animation-name: moveInBottom;
-        animation-delay: 3.5s;
-      }
+.cube:hover {
+  transform: rotateX(30deg) rotateY(30deg);
+}
 
-      @keyframes moveInFront {
-        to {
-          transform: translateZ(50px);
-          opacity: 1;
-        }
-      }
-      @keyframes moveInBack {
-        to {
-          transform: rotateY(180deg) translateZ(50px);
-          opacity: 1;
-        }
-      }
-      @keyframes moveInRight {
-        to {
-          transform: rotateY(90deg) translateZ(50px);
-          opacity: 1;
-        }
-      }
-      @keyframes moveInLeft {
-        to {
-          transform: rotateY(-90deg) translateZ(50px);
-          opacity: 1;
-        }
-      }
-      @keyframes moveInTop {
-        to {
-          transform: rotateX(90deg) translateZ(50px);
-          opacity: 1;
-        }
-      }
-      @keyframes moveInBottom {
-        to {
-          transform: rotateX(-90deg) translateZ(50px);
-          opacity: 1;
-        }
-      }
+.actor{
+  font-family: 'Cutive', serif;
+  font-size: small;
+}
+
+.face {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #ff0000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  opacity: 0;
+  animation: moveIn 0.6s forwards;
+  box-shadow: 0 0 8px red;
+  text-shadow: 0 0 5px red;
+}
+
+.front {
+  animation-name: moveInFront;
+  animation-delay: 3.8s;
+}
+.back {
+  animation-name: moveInBack;
+  animation-delay: 0s;
+}
+.right {
+  animation-name: moveInRight;
+  animation-delay: 2.6s;
+}
+.left {
+  animation-name: moveInLeft;
+  animation-delay: 2.9s;
+}
+.top {
+  animation-name: moveInTop;
+  animation-delay: 3.2s;
+}
+.bottom {
+  animation-name: moveInBottom;
+  animation-delay: 3.5s;
+}
+
+/* Animasi sisi-sisi */
+@keyframes moveInFront {
+  to { transform: translateZ(50px); opacity: 1; }
+}
+@keyframes moveInBack {
+  to { transform: rotateY(180deg) translateZ(50px); opacity: 1; }
+}
+@keyframes moveInRight {
+  to { transform: rotateY(90deg) translateZ(50px); opacity: 1; }
+}
+@keyframes moveInLeft {
+  to { transform: rotateY(-90deg) translateZ(50px); opacity: 1; }
+}
+@keyframes moveInTop {
+  to { transform: rotateX(90deg) translateZ(50px); opacity: 1; }
+}
+@keyframes moveInBottom {
+  to { transform: rotateX(-90deg) translateZ(50px); opacity: 1; }
+}
+
 
 @media(max-width: 768px) {
 

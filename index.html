@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/styles.css" />
     <link
+      href="https://fonts.googleapis.com/css2?family=Cutive&display=swap"
+      rel="stylesheet"
+    />
+    <link
       href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
       rel="stylesheet"
     />
@@ -16,10 +20,7 @@
     <header data-aos="fade" data-aos-delay="300">
       <nav>
         <a href=""
-          ><img
-            src="img/abe-removebg-preview-c.png"
-            class="brand"
-            alt="Alberto"
+          ><img src="img/darthvader.png" class="brand" alt="Alberto"
         /></a>
         <ul>
           <li><a href="#home" class="nav-link">Home</a></li>
@@ -34,11 +35,7 @@
       <section id="home" data-aos="fade-down" data-aos-delay="500">
         <div class="container box-shadow">
           <div class="container-img">
-            <img
-              src="img/abe-removebg-preview-c.png"
-              alt="Alberto"
-              width="200"
-            />
+            <img src="img/darthvader.png" alt="Alberto" />
             <div class="medsos">
               <div class="ig">
                 <a href="https://www.instagram.com/abe_kolin/" target="_blank">
@@ -141,6 +138,16 @@
                   </svg>
                 </a>
               </div>
+              <div class="container" style="display: block">
+                <div class="actor">
+                  <div class="actor__prefix"></div>
+                  <div id="vader" class="actor__content"></div>
+                </div>
+                <div class="actor" style="margin-top: 10px">
+                  <div class="actor__prefix"></div>
+                  <div id="luke" class="actor__content"></div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="container-intro" data-aos="fade" data-aos-delay="1000">
@@ -154,8 +161,9 @@
               ></b>
               years old. I’m a passionate <b>Informatics Engineering</b> student
               who is enthusiastic about web development, especially in
-              <b>Front-End Development</b>. I enjoy creating responsive websites
-              and building digital solutions that solve real-world problems.
+              <b>Back-End Development</b>. I enjoy designing APIs, managing
+              databases, and building scalable server-side applications that
+              solve real-world problems.
               <a
                 class="rainbow-text"
                 href="/files/cv_albert_kolin.pdf"
@@ -169,12 +177,12 @@
             <div class="container-cube" style="z-index: -1000">
               <div class="scene" data-aos="fade-down" data-aos-delay="1800">
                 <div class="cube">
-                  <div class="face back">Front</div>
-                  <div class="face left">Back</div>
-                  <div class="face front">Front</div>
-                  <div class="face top">Full</div>
-                  <div class="face bottom">Back</div>
-                  <div class="face right">Full</div>
+                  <div class="face back"></div>
+                  <div class="face left"></div>
+                  <div class="face front">Back</div>
+                  <div class="face top"></div>
+                  <div class="face bottom"></div>
+                  <div class="face right"></div>
                 </div>
               </div>
               <div class="text">
@@ -1093,6 +1101,7 @@
       </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://unpkg.com/theaterjs@latest/dist/theater.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/email.js"></script>
     <!-- AOS JS -->
