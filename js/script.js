@@ -1,7 +1,4 @@
 // api github
-const username = "godspeed28";
-const token =
-  "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"; // Ganti dengan token GitHub kamu
 
 function animateProgress(circleSelector, textSelector, skillValue) {
   let circle = document.querySelector(circleSelector);
@@ -31,75 +28,32 @@ function animateProgress(circleSelector, textSelector, skillValue) {
   setInterval(updateProgress, 500);
 }
 
-async function getAllLanguages(username, token) {
-  const reposRes = await fetch(
-    `https://api.github.com/users/${username}/repos`,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
+async function fetchLanguages() {
+  try {
+    const res = await fetch("/.netlify/functions/getLanguages");
+    if (!res.ok) throw new Error("Failed to fetch");
 
-  if (!reposRes.ok) {
-    console.error(
-      "Failed to fetch repos:",
-      reposRes.status,
-      reposRes.statusText
-    );
-    return {};
+    const data = await res.json();
+    console.log("Languages data from serverless function:", data);
+
+    const total = Object.values(data).reduce((a, b) => a + b, 0);
+
+    const HTML = Math.round(((data.HTML || 0) / total) * 100);
+    const CSSv = Math.round(((data.CSS || 0) / total) * 100);
+    const JavaScript = Math.round(((data.JavaScript || 0) / total) * 100);
+    const PHP = Math.round(((data.PHP || 0) / total) * 100);
+
+    // contoh fungsi animateProgress dari kode kamu
+    animateProgress(".progress-html", "cpuUsageHTML", HTML);
+    animateProgress(".progress-css", "cpuUsageCSS", CSSv);
+    animateProgress(".progress-js", "cpuUsageJS", JavaScript);
+    animateProgress(".progress-php", "cpuUsagePHP", PHP);
+  } catch (error) {
+    console.error(error);
   }
-
-  const repos = await reposRes.json();
-
-  const totalLanguages = {};
-
-  for (const repo of repos) {
-    const langUrl = repo.languages_url;
-    const langRes = await fetch(langUrl, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-
-    if (!langRes.ok) {
-      console.warn(
-        `Failed to fetch languages for ${repo.name}:`,
-        langRes.status
-      );
-      continue;
-    }
-
-    const langData = await langRes.json();
-
-    for (const [lang, bytes] of Object.entries(langData)) {
-      const safeLang = lang.replace(/[^a-zA-Z0-9]/g, "");
-      totalLanguages[safeLang] = (totalLanguages[safeLang] || 0) + bytes;
-    }
-  }
-
-  return totalLanguages;
 }
 
-getAllLanguages(username, token).then((data) => {
-  const total = Object.values(data).reduce((a, b) => a + b, 0);
-
-  console.log(data);
-
-  const HTML = Math.round(((data.HTML || 0) / total) * 100);
-  const CSSv = Math.round(((data.CSS || 0) / total) * 100);
-  const JavaScript = Math.round(((data.JavaScript || 0) / total) * 100);
-  const PHP = Math.round(((data.PHP || 0) / total) * 100);
-  const NodeJs = Math.round(((data.JavaScript || 0) / total) * 100);
-  const React = Math.round(((data.JavaScript || 0) / total) * 100);
-
-  animateProgress(".progress-html", "cpuUsageHTML", HTML);
-  animateProgress(".progress-css", "cpuUsageCSS", CSSv);
-  animateProgress(".progress-js", "cpuUsageJS", JavaScript);
-  animateProgress(".progress-php", "cpuUsagePHP", PHP);
-  animateProgress(".progress-node", "cpuUsageNode", NodeJs);
-  animateProgress(".progress-react", "cpuUsageReact", React);
-});
+fetchLanguages();
 
 window.addEventListener("scroll", function () {
   let navbar = document.querySelector("header");
