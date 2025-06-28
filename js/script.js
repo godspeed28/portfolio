@@ -1,7 +1,7 @@
 // api github
 const username = "godspeed28";
 const token =
-  "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"; // Ganti dengan token GitHub kamu
+  "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"; // Ganti dengan token GitHub kamu
 
 function animateProgress(circleSelector, textSelector, skillValue) {
   let circle = document.querySelector(circleSelector);
@@ -36,21 +36,39 @@ async function getAllLanguages(username, token) {
     `https://api.github.com/users/${username}/repos`,
     {
       headers: {
-        Authorization: `token ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     }
   );
 
+  if (!reposRes.ok) {
+    console.error(
+      "Failed to fetch repos:",
+      reposRes.status,
+      reposRes.statusText
+    );
+    return {};
+  }
+
   const repos = await reposRes.json();
+
   const totalLanguages = {};
 
   for (const repo of repos) {
     const langUrl = repo.languages_url;
     const langRes = await fetch(langUrl, {
       headers: {
-        Authorization: `token ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     });
+
+    if (!langRes.ok) {
+      console.warn(
+        `Failed to fetch languages for ${repo.name}:`,
+        langRes.status
+      );
+      continue;
+    }
 
     const langData = await langRes.json();
 
