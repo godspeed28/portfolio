@@ -4,7 +4,7 @@ html {
 
 body {
   background-color: #191414;
-  font-family: 'system-ui';
+  font-family: "system-ui";
   color: whitesmoke;
   box-sizing: border-box;
 }
@@ -57,21 +57,19 @@ a:hover {
   box-sizing: border-box;
 }
 
-
 .container-img {
   /* border: 3px solid white; */
   width: 25%;
   text-align: center;
   margin: 10px;
   height: 100%;
-
 }
 
 .rainbow-text {
   color: blue;
   text-decoration: none;
   /* Hilangkan underline bawaan */
-  background-image: linear-gradient(to right, red,red);
+  background-image: linear-gradient(to right, red, red);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200% 200%;
@@ -178,7 +176,6 @@ svg {
 .css-color {
   color: #507cf6;
   stroke: #507cf6;
-
 }
 
 .delete {
@@ -192,7 +189,6 @@ svg {
 .js-color {
   color: #f7df1e;
   stroke: #f7df1e;
-
 }
 
 .node-bg {
@@ -202,7 +198,6 @@ svg {
 .node-color {
   color: #8cc84b;
   stroke: #8cc84b;
-
 }
 
 .react-bg {
@@ -212,7 +207,6 @@ svg {
 .react-color {
   color: #17a2b8;
   stroke: #17a2b8;
-
 }
 
 .php-bg {
@@ -222,7 +216,6 @@ svg {
 .php-color {
   color: #8993be;
   stroke: #8993be;
-
 }
 
 .percentage {
@@ -405,7 +398,6 @@ img {
   overflow-x: auto;
   display: flex;
   scroll-snap-type: x mandatory;
-
 }
 
 .slider-container img {
@@ -448,7 +440,6 @@ textarea::placeholder {
 
 #name {
   border: 2px solid #dc3545;
-
 }
 
 #name:focus {
@@ -559,7 +550,7 @@ button:hover {
 }
 
 .text::after {
-  content: '|';
+  content: "|";
   position: absolute;
   top: 0;
   font-size: 24px;
@@ -577,7 +568,7 @@ button:hover {
   align-items: center;
 }
 
-  .cube {
+.cube {
   width: 100px;
   height: 100px;
   position: relative;
@@ -590,8 +581,8 @@ button:hover {
   transform: rotateX(30deg) rotateY(30deg);
 }
 
-.actor{
-  font-family: 'Cutive', serif;
+.actor {
+  font-family: "Cutive", serif;
   font-size: small;
 }
 
@@ -603,7 +594,7 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-weight: bold;
   font-size: 18px;
   text-align: center;
@@ -640,27 +631,43 @@ button:hover {
 
 /* Animasi sisi-sisi */
 @keyframes moveInFront {
-  to { transform: translateZ(50px); opacity: 1; }
+  to {
+    transform: translateZ(50px);
+    opacity: 1;
+  }
 }
 @keyframes moveInBack {
-  to { transform: rotateY(180deg) translateZ(50px); opacity: 1; }
+  to {
+    transform: rotateY(180deg) translateZ(50px);
+    opacity: 1;
+  }
 }
 @keyframes moveInRight {
-  to { transform: rotateY(90deg) translateZ(50px); opacity: 1; }
+  to {
+    transform: rotateY(90deg) translateZ(50px);
+    opacity: 1;
+  }
 }
 @keyframes moveInLeft {
-  to { transform: rotateY(-90deg) translateZ(50px); opacity: 1; }
+  to {
+    transform: rotateY(-90deg) translateZ(50px);
+    opacity: 1;
+  }
 }
 @keyframes moveInTop {
-  to { transform: rotateX(90deg) translateZ(50px); opacity: 1; }
+  to {
+    transform: rotateX(90deg) translateZ(50px);
+    opacity: 1;
+  }
 }
 @keyframes moveInBottom {
-  to { transform: rotateX(-90deg) translateZ(50px); opacity: 1; }
+  to {
+    transform: rotateX(-90deg) translateZ(50px);
+    opacity: 1;
+  }
 }
 
-
-@media(max-width: 768px) {
-
+@media (max-width: 768px) {
   .container-img {
     display: none;
   }
@@ -752,7 +759,6 @@ button:hover {
 
 /* Tablet (min-width: 601px) dan (max-width: 1024px) */
 @media (min-width: 601px) and (max-width: 1024px) {
-
   .exp,
   .educ {
     width: 100%;
@@ -774,7 +780,6 @@ button:hover {
   .project {
     width: 50%;
   }
-
 }
 
 @media only screen and (min-width: 768px) {
@@ -785,7 +790,6 @@ button:hover {
   .icon-fot {
     display: none;
   }
-
 }
 
 @media only screen and (max-device-width: 480px) {
@@ -796,4 +800,113 @@ button:hover {
 
 .text-muted {
   color: #6c757d !important;
+}
+
+@media (max-width: 992px) {
+  .d-none {
+    display: none;
+  }
+}
+
+.skill {
+  margin-bottom: 1.5rem;
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: -0.5rem;
+  margin-top: -20px;
+}
+
+.skill-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.skill-percent {
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.progress-container {
+  width: 100%;
+  height: 10px;
+  margin-top: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar {
+  height: 50%;
+  border-radius: 0px;
+  position: relative;
+  width: 0;
+  transition: width 1.5s ease-out, opacity 0.5s ease;
+  opacity: 0;
+}
+
+.progress-bar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.1)
+  );
+  border-radius: 10px;
+  animation: shine 2s infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Warna progress bar tanpa :root */
+.html .progress-bar {
+  background: linear-gradient(90deg, red);
+}
+
+.css .progress-bar {
+  background: linear-gradient(90deg, #507cf6);
+}
+
+.js .progress-bar {
+  background: linear-gradient(90deg, #ffd600, #ffea00);
+}
+
+.react .progress-bar {
+  background: linear-gradient(90deg, #61dafb, #21a1f1);
+}
+
+.node .progress-bar {
+  background: linear-gradient(90deg, #68a063, #8cc84b);
+}
+
+.php .progress-bar {
+  background: linear-gradient(90deg, #8993be);
+}
+
+@media (min-width: 992px) {
+  .d-md-none {
+    display: none;
+  }
+}
+
+@media (max-width: 992px) {
+  .d-md-none {
+    display: block;
+  }
 }

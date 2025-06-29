@@ -50,6 +50,29 @@ async function fetchLanguages() {
     animateProgress(".progress-php", "cpuUsagePHP", PHP);
     animateProgress(".progress-node", "cpuUsageNode", JavaScript);
     animateProgress(".progress-react", "cpuUsageReact", JavaScript);
+
+    // Nilai persen masing-masing skill
+    const skills = {
+      php: PHP,
+      html: HTML,
+      css: CSSv,
+      js: JavaScript,
+      react: JavaScript,
+      node: JavaScript,
+    };
+
+    function updateSkillBar(skillId, percent) {
+      const bar = document.getElementById(`${skillId}Bar`);
+      const label = document.getElementById(`${skillId}Percent`);
+      bar.dataset.percent = percent;
+      bar.style.width = `${percent}%`;
+      label.innerHTML = `${percent}%`;
+    }
+
+    // Loop update semua skill
+    for (let key in skills) {
+      updateSkillBar(key, skills[key]);
+    }
   } catch (error) {
     console.error(error);
   }

@@ -179,11 +179,12 @@
                 <span class="cursor"></span>
               </div>
             </div>
-            <div class="actor">
+            <div class="actor d-none">
               <div class="actor__prefix"></div>
               <div id="vader" class="actor__content"></div>
             </div>
             <hr
+              class="d-none"
               style="
                 width: 10px;
                 margin-left: 0;
@@ -193,7 +194,7 @@
                 background-color: red;
               "
             />
-            <div class="actor">
+            <div class="actor d-none">
               <div class="actor__prefix"></div>
               <div id="luke" class="actor__content"></div>
             </div>
@@ -206,7 +207,7 @@
           <h3><u>Skills</u></h3>
           <p class="text-muted">Technologies and tools I've worked with</p>
         </div>
-        <div class="container box-shadow">
+        <div class="container box-shadow d-none">
           <div
             class="container-skills"
             data-aos="fade-right"
@@ -638,13 +639,89 @@
             </div>
           </div>
         </div>
+
+        <div
+          class="container d-md-none box-shadow"
+          style="padding-right: 50px; padding-left: 50px"
+        >
+          <div class="skill html">
+            <div class="skill-info">
+              <p class="skill-name" id="htmlIcon">
+                <img width="35" height="35" src="/img/html.svg" alt="" />
+              </p>
+              <p class="skill-percent" id="htmlPercent"></p>
+            </div>
+            <div class="progress-container">
+              <div class="progress-bar" id="htmlBar" data-percent="0"></div>
+            </div>
+          </div>
+
+          <div class="skill css">
+            <div class="skill-info">
+              <p class="skill-name" id="cssIcon">
+                <img width="35" height="35" src="/img/css.svg" alt="" />
+              </p>
+              <p class="skill-percent" id="cssPercent"></p>
+            </div>
+            <div class="progress-container">
+              <div class="progress-bar" id="cssBar" data-percent="0"></div>
+            </div>
+          </div>
+
+          <div class="skill js">
+            <div class="skill-info">
+              <p class="skill-name" id="jsIcon">
+                <img src="/img/js.svg" alt="" />
+              </p>
+              <p class="skill-percent" id="jsPercent"></p>
+            </div>
+            <div class="progress-container">
+              <div class="progress-bar" id="jsBar" data-percent="0"></div>
+            </div>
+          </div>
+
+          <div class="skill react">
+            <div class="skill-info">
+              <p class="skill-name" id="reactIcon">
+                <img width="35" height="35" src="/img/react.svg" alt="" />
+              </p>
+              <p class="skill-percent" id="reactPercent"></p>
+            </div>
+            <div class="progress-container">
+              <div class="progress-bar" id="reactBar" data-percent="0"></div>
+            </div>
+          </div>
+
+          <div class="skill node">
+            <div class="skill-info">
+              <p class="skill-name" id="nodeIcon">
+                <img width="35" height="35" src="/img/nodejs.svg" alt="" />
+              </p>
+              <p class="skill-percent" id="nodePercent"></p>
+            </div>
+            <div class="progress-container">
+              <div class="progress-bar" id="nodeBar" data-percent="0"></div>
+            </div>
+          </div>
+
+          <div class="skill php" style="padding-bottom: 50px">
+            <div class="skill-info">
+              <p class="skill-name" id="phpIcon">
+                <img src="/img/php.svg" alt="" />
+              </p>
+              <p class="skill-percent" id="phpPercent"></p>
+            </div>
+            <div class="progress-container">
+              <div class="progress-bar" id="phpBar" data-percent="0"></div>
+            </div>
+          </div>
+        </div>
       </section>
       <section id="project">
         <div class="about" data-aos="fade-up" data-aos-duration="1000">
           <h3><u>Project Showcase</u></h3>
           <p class="text-muted">Explore my recent web development projects</p>
         </div>
-
         <div class="container box-shadow">
           <!-- Project 1 -->
           <div class="project" data-aos="fade-up" data-aos-delay="100">
@@ -1115,6 +1192,49 @@
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
       AOS.init();
+      document.addEventListener("DOMContentLoaded", function () {
+        const progressBars = document.querySelectorAll(".progress-bar");
+
+        function animateProgressBars() {
+          progressBars.forEach((bar) => {
+            const percent = bar.getAttribute("data-percent");
+            bar.style.width = percent + "%";
+            bar.style.opacity = "1";
+          });
+        }
+
+        setTimeout(animateProgressBars, 300);
+
+        const observerOptions = {
+          threshold: 0.1,
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animateProgressBars();
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        const skillsContainer = document.querySelector(".skills-container");
+        if (skillsContainer) {
+          observer.observe(skillsContainer);
+        }
+
+        const skills = document.querySelectorAll(".skill");
+        skills.forEach((skill) => {
+          skill.addEventListener("mouseenter", function () {
+            this.style.transform = "translateY(-3px)";
+            this.style.transition = "transform 0.3s ease";
+          });
+
+          skill.addEventListener("mouseleave", function () {
+            this.style.transform = "translateY(0)";
+          });
+        });
+      });
     </script>
   </body>
 </html>
