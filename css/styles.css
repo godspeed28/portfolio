@@ -53,12 +53,10 @@ a:hover {
   flex-wrap: wrap;
   margin-top: 10px;
   width: 100%;
-  /* border:3px solid #ccc; */
   box-sizing: border-box;
 }
 
 .container-img {
-  /* border: 3px solid white; */
   width: 25%;
   text-align: center;
   margin: 10px;
@@ -68,7 +66,6 @@ a:hover {
 .rainbow-text {
   color: blue;
   text-decoration: none;
-  /* Hilangkan underline bawaan */
   background-image: linear-gradient(to right, red, red);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -118,28 +115,23 @@ a:hover {
 
 .inst:hover path {
   fill: red;
-  /* Ubah warna menjadi merah saat hover */
 }
 
 .git:hover path {
   fill: #ffffff;
-  /* Ubah warna menjadi merah saat hover */
 }
 
 .container-intro {
-  /* border: 3px solid white; */
   width: 55%;
   margin: 10px;
 }
 
 .about {
-  /* border: 1px solid white; */
   padding: 10px;
   text-align: center;
 }
 
 .container-skills {
-  /* border: 3px solid white; */
   width: 25%;
   text-align: center;
   margin: 10px;
@@ -157,11 +149,6 @@ svg {
 
 .html-bg {
   background-color: rgba(220, 53, 69, 0.5);
-}
-
-.html-color {
-  color: #dc3545;
-  stroke: #dc3545;
 }
 
 .html-color {
@@ -223,9 +210,8 @@ svg {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 24px;
+  font-size: 15px;
   font-weight: bold;
-  /* background-color: rgba(247, 223, 30, 0.5); */
   font-family: Arial, sans-serif;
 }
 
@@ -253,40 +239,14 @@ svg {
   stroke: #333;
 }
 
-.circle .progress-html {
-  stroke-dasharray: 150.4;
-  stroke-dashoffset: 150.4;
-}
-
-.circle .progress-css {
-  stroke-dasharray: 150.4;
-  stroke-dashoffset: 150.4;
-}
-
-.circle .progress-js {
-  stroke-dasharray: 150.4;
-  stroke-dashoffset: 150.4;
-}
-
-.circle .progress-node {
-  stroke-dasharray: 150.4;
-  stroke-dashoffset: 150.4;
-}
-
-.circle .progress-react {
-  stroke-dasharray: 150.4;
-  stroke-dashoffset: 150.4;
-}
-
+.circle .progress-html,
+.circle .progress-css,
+.circle .progress-js,
+.circle .progress-node,
+.circle .progress-react,
 .circle .progress-php {
   stroke-dasharray: 150.4;
   stroke-dashoffset: 150.4;
-}
-
-.percentage {
-  position: absolute;
-  font-size: 15px;
-  font-weight: bold;
 }
 
 span {
@@ -297,7 +257,6 @@ span {
 
 img {
   width: 80%;
-  /* border: 3px solid whitesmoke; */
 }
 
 .container-cube {
@@ -307,7 +266,6 @@ img {
 
 .exp,
 .educ {
-  /* border: 3px solid #ccc; */
   width: 30%;
   margin: 10px;
   text-align: center;
@@ -356,7 +314,6 @@ img {
 }
 
 .sertif {
-  /* border: 3px solid #ccc; */
   width: 30%;
   margin: 20px;
   position: relative;
@@ -377,7 +334,6 @@ img {
 }
 
 .project {
-  /* border: 2px solid #ccc; */
   width: 35%;
   margin: 35px;
   border-radius: 5px;
@@ -408,15 +364,10 @@ img {
 }
 
 .form {
-  /* border: 3px solid #ccc; */
   width: 30%;
   margin: 10px;
   text-align: center;
-}
-
-.form {
   border-radius: 10px;
-  /* background-color: rgba(204, 204, 204, 0.5); ; */
 }
 
 input,
@@ -426,13 +377,11 @@ textarea {
   margin: 10px;
   width: 80%;
   background-color: transparent;
-  /* border: 3px solid #ccc */
 }
 
 input::placeholder,
 textarea::placeholder {
   color: #ccc;
-  /* Warna placeholder */
   font-size: small;
   font-weight: bold;
   outline: none;
@@ -475,48 +424,40 @@ button:hover {
 #btnReadMore {
   outline: none;
   border: none;
-  /* text-decoration: underline; */
   color: #0b5ed7;
 }
 
 .stack {
   display: flex;
   justify-content: flex-start;
-  /* border: 2px solid #ccc; */
   width: 80%;
 }
 
 .stack-child {
-  /* border: 1px solid #ccc; */
   box-shadow: 0px 4px 10px #000000;
   width: 10%;
   border-radius: 5px;
 }
 
-/* Animasi efek lingkaran */
 @keyframes circleEffect {
   0% {
     opacity: 1;
     transform: translate(-50%, -50%) scale(0);
   }
-
   50% {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
   }
-
   100% {
     opacity: 0;
     transform: translate(-50%, -50%) scale(1.5);
   }
 }
 
-/* Efek animasi pada huruf */
 @keyframes typing {
   from {
     width: 0;
   }
-
   to {
     width: 80%;
   }
@@ -526,11 +467,9 @@ button:hover {
   0% {
     opacity: 0;
   }
-
   50% {
     opacity: 1;
   }
-
   100% {
     opacity: 0;
   }
@@ -554,20 +493,11 @@ button:hover {
   position: absolute;
   top: 0;
   font-size: 24px;
-  /* Sesuaikan ukuran titik dengan teks */
   color: white;
   animation: blink 0.75s step-end infinite;
 }
 
-.scene {
-  width: 100px;
-  height: 200px;
-  perspective: 600px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
+.scene,
 .scene-project {
   width: 100px;
   height: 200px;
@@ -577,24 +507,28 @@ button:hover {
   align-items: center;
 }
 
-.cube {
-  width: 100px;
-  height: 100px;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 1s;
-  transform: rotateX(0deg) rotateY(0deg);
+.scene-project {
+  margin: 0 auto;
 }
 
-.cube:hover {
-  transform: rotateX(30deg) rotateY(30deg);
-}
+.cube,
 .cube-project {
   width: 100px;
   height: 100px;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 1s;
+}
+
+.cube {
+  transform: rotateX(0deg) rotateY(0deg);
+}
+
+.cube:hover {
+  transform: rotateX(30deg) rotateY(30deg);
+}
+
+.cube-project {
   transform: rotateX(30deg) rotateY(30deg);
 }
 
@@ -650,7 +584,6 @@ button:hover {
   animation-delay: 3.5s;
 }
 
-/* Animasi sisi-sisi */
 @keyframes moveInFront {
   to {
     transform: translateZ(50px);
@@ -687,6 +620,8 @@ button:hover {
     opacity: 1;
   }
 }
+
+/* Media Queries dan Responsif lanjut di bawah */
 
 @media (max-width: 768px) {
   .container-img {
@@ -778,7 +713,6 @@ button:hover {
   }
 }
 
-/* Tablet (min-width: 601px) dan (max-width: 1024px) */
 @media (min-width: 601px) and (max-width: 1024px) {
   .exp,
   .educ {
@@ -825,6 +759,25 @@ button:hover {
 
 @media (max-width: 992px) {
   .d-none {
+    display: none;
+  }
+
+  .d-md-none {
+    display: block;
+  }
+
+  .none-margin {
+    margin-left: 0 !important;
+  }
+
+  .none-pr-150 {
+    padding-right: 0 !important;
+    padding: 40px;
+  }
+}
+
+@media (min-width: 992px) {
+  .d-md-none {
     display: none;
   }
 }
@@ -895,7 +848,7 @@ button:hover {
   }
 }
 
-/* Warna progress bar tanpa :root */
+/* Warna progress bar */
 .html .progress-bar {
   background: linear-gradient(90deg, red);
 }
@@ -920,18 +873,6 @@ button:hover {
   background: linear-gradient(90deg, #8993be);
 }
 
-@media (min-width: 992px) {
-  .d-md-none {
-    display: none;
-  }
-}
-
-@media (max-width: 992px) {
-  .d-md-none {
-    display: block;
-  }
-}
-
 .project-links {
   color: red;
   padding: 5px;
@@ -939,14 +880,4 @@ button:hover {
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 10px;
-}
-
-@media (max-width: 992px) {
-  .none-margin {
-    margin-left: 0 !important;
-  }
-  .none-pr-150 {
-    padding-right: 0 !important;
-    padding: 40px;
-  }
 }
