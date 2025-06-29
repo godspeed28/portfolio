@@ -194,4 +194,6 @@ theater
   .addScene("vader:As father and son.", 1600)
   .addScene("vader:Come with me. ", 800)
   .addScene("vader:It is the only way.", 2000)
+  .addScene("luke:I'll never join you!", 800)
+  .addScene("vader:So be it.", 1000)
   .addScene(theater.replay.bind(theater));
