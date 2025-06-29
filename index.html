@@ -717,284 +717,177 @@
           </div>
         </div>
       </section>
+      <style>
+        .cube-1 {
+          animation: float-1 6s ease-in-out infinite;
+        }
+
+        .cube-2 {
+          animation: float-2 7s ease-in-out infinite 1s;
+        }
+
+        @keyframes float-1 {
+          0%,
+          100% {
+            transform: translateZ(-90px) rotateX(-15deg) rotateY(15deg);
+          }
+          50% {
+            transform: translateZ(-90px) rotateX(-25deg) rotateY(25deg)
+              translateY(-20px);
+          }
+        }
+
+        @keyframes float-2 {
+          0%,
+          100% {
+            transform: translateZ(-90px) rotateX(10deg) rotateY(10deg);
+          }
+          50% {
+            transform: translateZ(-90px) rotateX(0deg) rotateY(20deg)
+              translateY(-15px);
+          }
+        }
+      </style>
       <section id="project">
         <div class="about" data-aos="fade-up" data-aos-duration="1000">
           <h3><u>Project Showcase</u></h3>
           <p class="text-muted">Explore my recent web development projects</p>
         </div>
-        <div class="container box-shadow">
-          <!-- Project 1 -->
-          <div class="project" data-aos="fade-up" data-aos-delay="100">
-            <div class="slider-container">
-              <!-- Gambar proyek -->
-              <img
-                src="img/AryaniGO/Home.jpg"
-                alt="Aryani GO"
-                class="project-img"
-              />
-              <img
-                src="img/AryaniGO/Services.png"
-                alt="Aryani GO"
-                class="project-img"
-              />
-              <img
-                src="img/AryaniGO/About.png"
-                alt="Aryani GO"
-                class="project-img"
-              />
-              <img
-                src="img/AryaniGO/Contact.png"
-                alt="Aryani GO"
-                class="project-img"
-              />
-              <img
-                src="img/AryaniGO/Menu.png"
-                alt="Aryani GO"
-                class="project-img"
-              />
-              <img
-                src="img/AryaniGO/Pesanan.png"
-                alt="Aryani GO"
-                class="project-img"
-              />
-              <img
-                src="img/AryaniGO/Dashboard.png"
-                alt="Aryani GO"
-                class="project-img"
-              />
-              <img
-                src="img/AryaniGO/Reports.png"
-                alt="Aryani GO"
-                class="project-img"
-              />
-            </div>
-            <div class="stack">
-              <div class="stack-child">
-                <img src="img/php.svg" height="30" width="30" alt="PHP" />
-              </div>
-              <div class="stack-child">
-                <img
-                  src="img/bootstrap.svg"
-                  height="30"
-                  width="30"
-                  alt="Bootstrap"
-                />
-              </div>
-              <div class="stack-child">
-                <img src="img/js.svg" height="30" width="30" alt="JavaScript" />
-              </div>
-              <div class="stack-child">
-                <img src="img/mysql.svg" height="30" width="30" alt="MySQL" />
+        <div
+          class="container box-shadow none-margin"
+          style="
+            padding-bottom: 50px;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+          "
+        >
+          <!-- Kotak pertama -->
+          <div
+            class="container-cube-project"
+            style="padding: 0 30px"
+            data-aos="fade-down"
+            data-aos-delay="1000"
+          >
+            <div class="scene-project" style="margin-left: 40px">
+              <div class="cube-project cube-1">
+                <div class="face back"></div>
+                <div class="face left"></div>
+                <div class="face front"></div>
+                <div class="face top"></div>
+                <div class="face bottom"></div>
+                <div class="face right"></div>
               </div>
             </div>
-            <p>
-              Aryani GO adalah sebuah platform berbasis web yang dikembangkan
-              untuk mengelola pemesanan dan pengantaran makanan secara digital.
+            <p style="text-align: center; margin-top: 0">AryaniGO</p>
+            <p class="text-muted" style="text-align: center; margin-top: -5px">
+              Pengalaman Kuliner Digital
+            </p>
+            <div style="text-align: center">
               <a
-                href="https://github.com/goodsped/Ariani-Restourant"
-                style="color: #0d6efd"
+                href="https://github.com/godspeed28/ariani-restourant"
                 target="_blank"
-                rel="noopener noreferrer"
+                class="project-links"
               >
-                GitHub
+                <svg
+                  class="git"
+                  xmlns="http://www.w3.org/2000/svg"
+                  x="0px"
+                  y="0px"
+                  width="40"
+                  height="40"
+                  viewBox="0,0,256,256"
+                >
+                  <g
+                    fill="red"
+                    fill-rule="nonzero"
+                    stroke="none"
+                    stroke-width="1"
+                    stroke-linecap="butt"
+                    stroke-linejoin="miter"
+                    stroke-miterlimit="10"
+                    stroke-dasharray=""
+                    stroke-dashoffset="0"
+                    font-family="none"
+                    font-weight="none"
+                    font-size="none"
+                    text-anchor="none"
+                    style="mix-blend-mode: normal"
+                  >
+                    <g transform="scale(2.56,2.56)">
+                      <path
+                        d="M29,17c-6.617,0 -12,5.383 -12,12v42c0,6.617 5.383,12 12,12h42c6.617,0 12,-5.383 12,-12v-42c0,-6.617 -5.383,-12 -12,-12zM29,19h42c5.514,0 10,4.486 10,10v42c0,5.514 -4.486,10 -10,10h-42c-5.514,0 -10,-4.486 -10,-10v-42c0,-5.514 4.486,-10 10,-10zM34.5,23c-6.341,0 -11.5,5.159 -11.5,11.5v31c0,6.341 5.159,11.5 11.5,11.5h7.47656h17h6.52344c6.341,0 11.5,-5.159 11.5,-11.5v-15c0,-0.276 -0.224,-0.5 -0.5,-0.5c-0.276,0 -0.5,0.224 -0.5,0.5v15c0,5.79 -4.71,10.5 -10.5,10.5h-6.02344v-8.3457c0,-2.213 -1.03714,-4.2863 -2.74414,-5.6543h0.69336c7.173,0 13.00781,-5.81394 13.00781,-12.96094c0,-3.237 -1.19977,-6.32842 -3.38477,-8.73242c0.33,-2.064 0.33539,-5.16284 -0.59961,-7.96484c-0.069,-0.204 -0.25961,-0.3418 -0.47461,-0.3418c-4.051,0 -7.47144,2.689 -8.89844,4h-12.4082c-3.5,-3.304 -6.65541,-4 -8.69141,-4c-0.215,0 -0.40561,0.1378 -0.47461,0.3418c-0.768,2.301 -1.10548,5.05481 -0.89648,7.25781c-2.599,2.454 -4.08398,5.87941 -4.08398,9.44141c0,7.146 5.83386,12.95898 13.00586,12.95898h0.66797c-1.321,1.032 -2.26691,2.45109 -2.62891,3.99609c-1.997,-0.032 -4.28647,-0.32764 -5.35547,-1.93164c-2.425,-3.64 -3.64833,-3.91211 -5.23633,-3.91211c-0.663,0 -1.16209,0.28992 -1.37109,0.79492c-0.294,0.708 0.04897,1.65053 0.91797,2.51953c1.172,1.173 1.17319,1.17159 2.36719,3.55859c0.722,1.444 2.79089,3.83775 8.58789,3.96875v5.00586h-6.97656c-5.79,0 -10.5,-4.71 -10.5,-10.5v-31c0,-5.79 4.71,-10.5 10.5,-10.5h31c0.276,0 0.5,-0.224 0.5,-0.5c0,-0.276 -0.224,-0.5 -0.5,-0.5zM36.33789,33.00781c1.868,0.084 4.61926,0.84253 7.69727,3.76953l0.0918,0.08789c0.093,0.087 0.2148,0.13477 0.3418,0.13477h12.80469c0.127,0 0.26051,-0.05753 0.35352,-0.14453c1.192,-1.123 4.30433,-3.68566 7.98633,-3.84766c0.799,2.645 0.7412,5.51709 0.4082,7.37109c-0.028,0.157 0.01991,0.31664 0.12891,0.43164c2.116,2.242 3.2832,5.16452 3.2832,8.22852c0,6.595 -5.38681,11.96094 -12.00781,11.96094h-2.44922c-0.235,0 -0.43828,0.16358 -0.48828,0.39258c-0.051,0.229 0.0653,0.46255 0.2793,0.56055c2.252,1.033 3.70898,3.27017 3.70898,5.70117v8.3457h-16v-5.5c0,-0.276 -0.224,-0.5 -0.5,-0.5c-4.181,0 -7.09136,-1.21587 -8.19336,-3.42187c-1.243,-2.485 -1.26769,-2.53136 -2.55469,-3.81836c-0.671,-0.672 -0.78717,-1.22369 -0.70117,-1.42969c0.063,-0.155 0.30727,-0.17773 0.44727,-0.17773c1.123,0 2.0933,-0.0002 4.4043,3.4668c1.407,2.109 4.26466,2.38086 6.59766,2.38086c0.245,0 0.45319,-0.17792 0.49219,-0.41992c0.318,-1.949 1.74084,-3.721 3.71484,-4.625c0.214,-0.098 0.33225,-0.33155 0.28125,-0.56055c-0.05,-0.23 -0.25328,-0.39453 -0.48828,-0.39453h-2.44727c-6.62,0 -12.00781,-5.36594 -12.00781,-11.96094c0,-3.365 1.43736,-6.6 3.94336,-8.875c0.119,-0.109 0.18111,-0.26773 0.16211,-0.42773c-0.229,-1.967 0.04894,-4.56652 0.71094,-6.72852zM76.5,34c-0.276,0 -0.5,0.224 -0.5,0.5v3.5c0,0.276 0.224,0.5 0.5,0.5c0.276,0 0.5,-0.224 0.5,-0.5v-3.5c0,-0.276 -0.224,-0.5 -0.5,-0.5zM76.5,41c-0.276,0 -0.5,0.224 -0.5,0.5v6.5c0,0.276 0.224,0.5 0.5,0.5c0.276,0 0.5,-0.224 0.5,-0.5v-6.5c0,-0.276 -0.224,-0.5 -0.5,-0.5z"
+                      ></path>
+                    </g>
+                  </g>
+                </svg>
               </a>
-            </p>
-            <button
-              type="button"
-              id="btnReadMore"
-              style="background-color: transparent"
-            >
-              Read More &raquo;
-            </button>
-            <p class="readMore none" style="margin-top: -10px">
-              Dibangun dengan PHP untuk backend dan Bootstrap untuk styling,
-              sistem ini mendukung fitur seperti manajemen menu, pemrosesan
-              pesanan, pembayaran online, serta integrasi pengiriman.
-            </p>
+            </div>
           </div>
 
-          <!-- Project 2 -->
-          <div class="project" data-aos="fade-up" data-aos-delay="200">
-            <div class="slider-container">
-              <img
-                src="img/SpinCycle/Home.png"
-                alt="Spin Cycle"
-                class="project-img"
-              />
-              <img
-                src="img/SpinCycle/Services.png"
-                alt="Spin Cycle"
-                class="project-img"
-              />
-              <img
-                src="img/SpinCycle/About.png"
-                alt="Spin Cycle"
-                class="project-img"
-              />
-              <img
-                src="img/SpinCycle/Profil.png"
-                alt="Spin Cycle"
-                class="project-img"
-              />
-              <img
-                src="img/SpinCycle/Order.png"
-                alt="Spin Cycle"
-                class="project-img"
-              />
-              <img
-                src="img/SpinCycle/Dashboard.png"
-                alt="Spin Cycle"
-                class="project-img"
-              />
-              <img
-                src="img/SpinCycle/Reports.png"
-                alt="Spin Cycle"
-                class="project-img"
-              />
-            </div>
-            <div class="stack">
-              <div class="stack-child">
-                <img src="img/ci4.svg" width="25" height="25" alt="CI4" />
-              </div>
-              <div class="stack-child">
-                <img
-                  src="img/bootstrap.svg"
-                  width="30"
-                  height="30"
-                  alt="Bootstrap"
-                />
-              </div>
-              <div class="stack-child">
-                <img src="img/jquery.svg" width="25" height="25" alt="jQuery" />
-              </div>
-              <div class="stack-child">
-                <img src="img/js.svg" height="30" width="30" alt="JavaScript" />
-              </div>
-              <div class="stack-child">
-                <img src="img/mysql.svg" height="30" width="30" alt="MySQL" />
+          <!-- Kotak kedua -->
+          <div
+            class="container-cube-project"
+            style="padding: 0 30px"
+            data-aos="fade-down"
+            data-aos-delay="1000"
+          >
+            <div class="scene-project" style="margin-left: 40px">
+              <div class="cube-project cube-2">
+                <div class="face back"></div>
+                <div class="face left"></div>
+                <div class="face front"></div>
+                <div class="face top"></div>
+                <div class="face bottom"></div>
+                <div class="face right"></div>
               </div>
             </div>
-            <p>
-              Spin Cycle adalah sebuah aplikasi laundry berbasis web yang
-              dikembangkan untuk memudahkan pelanggan dalam melakukan pemesanan
-              jasa laundry secara online.
+            <p style="text-align: center; margin-top: 0">SpinCycle</p>
+            <p class="text-muted" style="text-align: center; margin-top: -5px">
+              Aplikasi Laundry Cepat & Praktis
+            </p>
+            <div style="text-align: center">
               <a
+                target="_blank"
                 href="https://github.com/godspeed28/spin-cycle"
-                style="color: #0d6efd"
-                target="_blank"
-                rel="noopener noreferrer"
+                class="project-links"
               >
-                GitHub
+                <!-- Ikon SVG -->
+                <svg
+                  class="git"
+                  xmlns="http://www.w3.org/2000/svg"
+                  x="0px"
+                  y="0px"
+                  width="40"
+                  height="40"
+                  viewBox="0,0,256,256"
+                >
+                  <g
+                    fill="red"
+                    fill-rule="nonzero"
+                    stroke="none"
+                    stroke-width="1"
+                    stroke-linecap="butt"
+                    stroke-linejoin="miter"
+                    stroke-miterlimit="10"
+                    stroke-dasharray=""
+                    stroke-dashoffset="0"
+                    font-family="none"
+                    font-weight="none"
+                    font-size="none"
+                    text-anchor="none"
+                    style="mix-blend-mode: normal"
+                  >
+                    <g transform="scale(2.56,2.56)">
+                      <path
+                        d="M29,17c-6.617,0 -12,5.383 -12,12v42c0,6.617 5.383,12 12,12h42c6.617,0 12,-5.383 12,-12v-42c0,-6.617 -5.383,-12 -12,-12zM29,19h42c5.514,0 10,4.486 10,10v42c0,5.514 -4.486,10 -10,10h-42c-5.514,0 -10,-4.486 -10,-10v-42c0,-5.514 4.486,-10 10,-10zM34.5,23c-6.341,0 -11.5,5.159 -11.5,11.5v31c0,6.341 5.159,11.5 11.5,11.5h7.47656h17h6.52344c6.341,0 11.5,-5.159 11.5,-11.5v-15c0,-0.276 -0.224,-0.5 -0.5,-0.5c-0.276,0 -0.5,0.224 -0.5,0.5v15c0,5.79 -4.71,10.5 -10.5,10.5h-6.02344v-8.3457c0,-2.213 -1.03714,-4.2863 -2.74414,-5.6543h0.69336c7.173,0 13.00781,-5.81394 13.00781,-12.96094c0,-3.237 -1.19977,-6.32842 -3.38477,-8.73242c0.33,-2.064 0.33539,-5.16284 -0.59961,-7.96484c-0.069,-0.204 -0.25961,-0.3418 -0.47461,-0.3418c-4.051,0 -7.47144,2.689 -8.89844,4h-12.4082c-3.5,-3.304 -6.65541,-4 -8.69141,-4c-0.215,0 -0.40561,0.1378 -0.47461,0.3418c-0.768,2.301 -1.10548,5.05481 -0.89648,7.25781c-2.599,2.454 -4.08398,5.87941 -4.08398,9.44141c0,7.146 5.83386,12.95898 13.00586,12.95898h0.66797c-1.321,1.032 -2.26691,2.45109 -2.62891,3.99609c-1.997,-0.032 -4.28647,-0.32764 -5.35547,-1.93164c-2.425,-3.64 -3.64833,-3.91211 -5.23633,-3.91211c-0.663,0 -1.16209,0.28992 -1.37109,0.79492c-0.294,0.708 0.04897,1.65053 0.91797,2.51953c1.172,1.173 1.17319,1.17159 2.36719,3.55859c0.722,1.444 2.79089,3.83775 8.58789,3.96875v5.00586h-6.97656c-5.79,0 -10.5,-4.71 -10.5,-10.5v-31c0,-5.79 4.71,-10.5 10.5,-10.5h31c0.276,0 0.5,-0.224 0.5,-0.5c0,-0.276 -0.224,-0.5 -0.5,-0.5zM36.33789,33.00781c1.868,0.084 4.61926,0.84253 7.69727,3.76953l0.0918,0.08789c0.093,0.087 0.2148,0.13477 0.3418,0.13477h12.80469c0.127,0 0.26051,-0.05753 0.35352,-0.14453c1.192,-1.123 4.30433,-3.68566 7.98633,-3.84766c0.799,2.645 0.7412,5.51709 0.4082,7.37109c-0.028,0.157 0.01991,0.31664 0.12891,0.43164c2.116,2.242 3.2832,5.16452 3.2832,8.22852c0,6.595 -5.38681,11.96094 -12.00781,11.96094h-2.44922c-0.235,0 -0.43828,0.16358 -0.48828,0.39258c-0.051,0.229 0.0653,0.46255 0.2793,0.56055c2.252,1.033 3.70898,3.27017 3.70898,5.70117v8.3457h-16v-5.5c0,-0.276 -0.224,-0.5 -0.5,-0.5c-4.181,0 -7.09136,-1.21587 -8.19336,-3.42187c-1.243,-2.485 -1.26769,-2.53136 -2.55469,-3.81836c-0.671,-0.672 -0.78717,-1.22369 -0.70117,-1.42969c0.063,-0.155 0.30727,-0.17773 0.44727,-0.17773c1.123,0 2.0933,-0.0002 4.4043,3.4668c1.407,2.109 4.26466,2.38086 6.59766,2.38086c0.245,0 0.45319,-0.17792 0.49219,-0.41992c0.318,-1.949 1.74084,-3.721 3.71484,-4.625c0.214,-0.098 0.33225,-0.33155 0.28125,-0.56055c-0.05,-0.23 -0.25328,-0.39453 -0.48828,-0.39453h-2.44727c-6.62,0 -12.00781,-5.36594 -12.00781,-11.96094c0,-3.365 1.43736,-6.6 3.94336,-8.875c0.119,-0.109 0.18111,-0.26773 0.16211,-0.42773c-0.229,-1.967 0.04894,-4.56652 0.71094,-6.72852zM76.5,34c-0.276,0 -0.5,0.224 -0.5,0.5v3.5c0,0.276 0.224,0.5 0.5,0.5c0.276,0 0.5,-0.224 0.5,-0.5v-3.5c0,-0.276 -0.224,-0.5 -0.5,-0.5zM76.5,41c-0.276,0 -0.5,0.224 -0.5,0.5v6.5c0,0.276 0.224,0.5 0.5,0.5c0.276,0 0.5,-0.224 0.5,-0.5v-6.5c0,-0.276 -0.224,-0.5 -0.5,-0.5z"
+                      ></path>
+                    </g>
+                  </g>
+                </svg>
               </a>
-            </p>
-            <button
-              type="button"
-              id="btnReadMore"
-              style="background-color: transparent"
-            >
-              Read More &raquo;
-            </button>
-            <p class="readMore none" style="margin-top: -10px">
-              Aplikasi ini dibangun menggunakan CodeIgniter 4 untuk backend dan
-              Bootstrap untuk tampilan antarmuka. Fitur utama meliputi pemilihan
-              layanan laundry (Wash & Fold, Ironing, Dry Cleaning), penghitungan
-              berat berdasarkan jenis pakaian, opsi layanan Express, serta
-              halaman checkout yang terintegrasi.
-            </p>
-          </div>
-
-          <!-- Project 3 -->
-          <div class="project" data-aos="fade-up" data-aos-delay="300">
-            <div class="slider-container">
-              <img
-                src="img/PredictUMKM/Dashboard.png"
-                alt="Predict App"
-                class="project-img"
-              />
-              <img
-                src="img/PredictUMKM/DarkMode.png"
-                alt="Predict App"
-                class="project-img"
-              />
-              <img
-                src="img/PredictUMKM/PrediksiTabel.png"
-                alt="Predict App"
-                class="project-img"
-              />
-              <img
-                src="img/PredictUMKM/GrafikPrediksi.png"
-                alt="Predict App"
-                class="project-img"
-              />
-              <img
-                src="img/PredictUMKM/FormatFile.png"
-                alt="Predict App"
-                class="project-img"
-              />
-              <img
-                src="img/PredictUMKM/Doc.png"
-                alt="Predict App"
-                class="project-img"
-              />
-              <img
-                src="img/PredictUMKM/Contact.png"
-                alt="Predict App"
-                class="project-img"
-              />
             </div>
-            <div class="stack">
-              <div class="stack-child">
-                <img src="img/django.svg" width="30" height="30" alt="Django" />
-              </div>
-              <div class="stack-child">
-                <img
-                  src="img/xgboost.svg"
-                  width="30"
-                  height="30"
-                  alt="XGBoost"
-                />
-              </div>
-              <div class="stack-child">
-                <img
-                  src="img/bootstrap.svg"
-                  width="30"
-                  height="30"
-                  alt="Bootstrap"
-                />
-              </div>
-              <div class="stack-child">
-                <img src="img/js.svg" height="30" width="30" alt="JavaScript" />
-              </div>
-            </div>
-            <p>
-              UMKM Revenue Predictor adalah sebuah aplikasi berbasis web yang
-              dirancang untuk membantu pelaku bisnis memprediksi pendapatan
-              (omset) masa depan berdasarkan data historis dan variabel-variabel
-              penentu.
-              <a
-                href="https://github.com/godspeed28/omset-prediksi-xgboost"
-                style="color: #0d6efd"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub
-              </a>
-            </p>
-            <button
-              type="button"
-              id="btnReadMore"
-              style="background-color: transparent"
-            >
-              Read More &raquo;
-            </button>
-            <p class="readMore none" style="margin-top: -10px">
-              Aplikasi ini dibangun dengan framework modern untuk analisis data
-              dan machine learning, dilengkapi dengan fitur upload dataset,
-              dengan model prediksi XGBoost Regressor, visualisasi tren
-              historis, serta tampilan hasil prediksi dengan interval
-              kepercayaan. Sistem ini membantu pengguna dalam pengambilan
-              keputusan bisnis yang lebih terinformasi.
-            </p>
           </div>
         </div>
       </section>

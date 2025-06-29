@@ -568,6 +568,15 @@ button:hover {
   align-items: center;
 }
 
+.scene-project {
+  width: 100px;
+  height: 200px;
+  perspective: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .cube {
   width: 100px;
   height: 100px;
@@ -579,6 +588,18 @@ button:hover {
 
 .cube:hover {
   transform: rotateX(30deg) rotateY(30deg);
+}
+.cube-project {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  transform: rotateX(30deg) rotateY(30deg);
+}
+
+.cube-project:hover {
+  transform: rotateX(360deg) rotateY(360deg);
 }
 
 .actor {
@@ -908,5 +929,24 @@ button:hover {
 @media (max-width: 992px) {
   .d-md-none {
     display: block;
+  }
+}
+
+.project-links {
+  color: red;
+  padding: 5px;
+  margin: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+}
+
+@media (max-width: 992px) {
+  .none-margin {
+    margin-left: 0 !important;
+  }
+  .none-pr-150 {
+    padding-right: 0 !important;
+    padding: 40px;
   }
 }
