@@ -1,5 +1,33 @@
-// api github
+// send-email
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("contactForm");
 
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    fetch("/.netlify/functions/send-email", {
+      method: "POST",
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.success) {
+          alert("Pesan berhasil dikirim!");
+          form.reset();
+        } else {
+          alert("Gagal mengirim: " + res.error);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        alert("Terjadi kesalahan jaringan.");
+      });
+  });
+});
+
+// api github
 function animateProgress(circleSelector, textSelector, skillValue) {
   let circle = document.querySelector(circleSelector);
   let text = document.getElementById(textSelector);
@@ -220,3 +248,48 @@ theater
   .addScene("luke:I'll never join you!", 800)
   .addScene("vader:So be it.", 1000)
   .addScene(theater.replay.bind(theater));
+
+AOS.init();
+document.addEventListener("DOMContentLoaded", function () {
+  const progressBars = document.querySelectorAll(".progress-bar");
+
+  function animateProgressBars() {
+    progressBars.forEach((bar) => {
+      const percent = bar.getAttribute("data-percent");
+      bar.style.width = percent + "%";
+      bar.style.opacity = "1";
+    });
+  }
+
+  setTimeout(animateProgressBars, 300);
+
+  const observerOptions = {
+    threshold: 0.1,
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        animateProgressBars();
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  const skillsContainer = document.querySelector(".skills-container");
+  if (skillsContainer) {
+    observer.observe(skillsContainer);
+  }
+
+  const skills = document.querySelectorAll(".skill");
+  skills.forEach((skill) => {
+    skill.addEventListener("mouseenter", function () {
+      this.style.transform = "translateY(-3px)";
+      this.style.transition = "transform 0.3s ease";
+    });
+
+    skill.addEventListener("mouseleave", function () {
+      this.style.transform = "translateY(0)";
+    });
+  });
+});

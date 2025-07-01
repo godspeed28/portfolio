@@ -2,6 +2,23 @@
   "name": "netlify-functions",
   "version": "1.0.0",
   "dependencies": {
+    "@emailjs/nodejs": "^5.0.2",
     "node-fetch": "^2.6.7"
-  }
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/godspeed28/portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/godspeed28/portfolio/issues"
+  },
+  "homepage": "https://github.com/godspeed28/portfolio#readme",
+  "description": ""
 }
