@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const data = Object.fromEntries(formData.entries());
 
     fetch("/.netlify/functions/send-email", {
-      method: "POST",
+      method: "POST", // ✅ ini harus POST
       headers: {
         "Content-Type": "application/json",
       },
