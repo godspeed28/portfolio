@@ -1,36 +1,3 @@
-// send-email
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("contactForm");
-
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
-
-    try {
-      const res = await fetch("/.netlify/functions/send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-
-      const result = await res.json();
-
-      if (result.success) {
-        alert("Pesan berhasil dikirim!");
-        form.reset();
-      } else {
-        alert("Gagal mengirim: " + result.error);
-      }
-    } catch (err) {
-      console.error(err);
-      alert("Terjadi kesalahan jaringan.");
-    }
-  });
-});
-
 // api github
 function animateProgress(circleSelector, textSelector, skillValue) {
   let circle = document.querySelector(circleSelector);

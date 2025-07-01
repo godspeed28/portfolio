@@ -1,0 +1,25 @@
+.swal2-popup.swal2-starwars {
+  background: #121212;
+  color: #e0e0e0;
+  border: 1px solid #880000;
+  box-shadow: 0 0 12px rgba(136, 0, 0, 0.6);
+  border-radius: 8px;
+}
+
+.swal2-title {
+  color: #dd4444;
+  text-shadow: 0 0 4px #440000;
+  font-weight: 600;
+}
+
+.swal2-icon {
+  border-color: #bb2222 !important;
+  color: #bb2222 !important;
+}
+
+.swal2-confirm {
+  background-color: #bb2222 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(187, 34, 34, 0.6);
+  border-radius: 6px;
+}

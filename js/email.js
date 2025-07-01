@@ -1,60 +1,96 @@
-// document.addEventListener("DOMContentLoaded", function () {
-//     // Inisialisasi EmailJS setelah DOM siap
-//     emailjs.init("okyksMBrSIxlG56cy");
+document.addEventListener("DOMContentLoaded", () => {
+  // Inisialisasi EmailJS
+  emailjs.init("okyksMBrSIxlG56cy");
 
-//     const form = document.getElementById("contactForm");
+  const form = document.getElementById("contactForm");
 
-//     if (form) {
-//         // Fungsi untuk update URL berdasarkan input
-//         function updateURL() {
-//             const formData = new FormData(form);
-//             const params = new URLSearchParams(formData).toString();
-//             history.replaceState(null, "", "?" + params);
-//         }
+  if (!form) {
+    console.error("Formulir dengan ID 'contactForm' tidak ditemukan.");
+    return;
+  }
 
-//         // Event listener untuk update URL secara real-time saat user mengetik
-//         form.querySelectorAll("input, textarea").forEach((input) => {
-//             input.addEventListener("input", updateURL);
-//         });
+  const submitButton = form.querySelector("button[type='submit']");
 
-//         // Jika ada data di URL, isi formulir secara otomatis
-//         const params = new URLSearchParams(window.location.search);
-//         params.forEach((value, key) => {
-//             if (form[key]) form[key].value = value;
-//         });
+  // Fungsi update URL dari form
+  const updateURL = () => {
+    const formData = new FormData(form);
+    const params = new URLSearchParams(formData).toString();
+    history.replaceState(null, "", "?" + params);
+  };
 
-//         // Event submit untuk mengirim formulir
-//         form.addEventListener("submit", function (event) {
-//             event.preventDefault(); // Cegah reload
+  // Isi form otomatis dari URL jika ada
+  const params = new URLSearchParams(window.location.search);
+  for (const [key, value] of params.entries()) {
+    const field = form.elements[key];
+    if (field) field.value = value;
+  }
 
-//             const submitButton = form.querySelector("button[type='submit']");
-//             submitButton.disabled = true; // Cegah klik ganda
+  // Update URL setiap input berubah
+  form.querySelectorAll("input, textarea").forEach((el) => {
+    el.addEventListener("input", updateURL);
+  });
 
-//             emailjs.sendForm("service_m1s0aee", "template_2dqg7x5", form)
-//                 .then(response => {
-//                     Swal.fire({
-//                         title: "Berhasil!",
-//                         text: "Pesan berhasil dikirim!",
-//                         icon: "success",
-//                         confirmButtonText: "OK"
-//                     }).then(() => {
-//                         form.reset(); // Reset form
-//                         updateURL(); // Hapus query dari URL setelah submit
-//                         submitButton.disabled = false;
-//                     });
-//                 })
-//                 .catch(error => {
-//                     Swal.fire({
-//                         title: "Gagal!",
-//                         text: "Gagal mengirim pesan, coba lagi nanti.",
-//                         icon: "error",
-//                         confirmButtonText: "OK"
-//                     });
-//                     console.error("Gagal mengirim pesan:", error);
-//                     submitButton.disabled = false;
-//                 });
-//         });
-//     } else {
-//         console.error("Formulir tidak ditemukan. Pastikan ID 'contactForm' ada di HTML.");
-//     }
-// });
+  // Validasi ringan
+  const validateForm = () => {
+    const requiredFields = form.querySelectorAll("[required]");
+    for (const field of requiredFields) {
+      if (!field.value.trim()) {
+        field.focus();
+        return false;
+      }
+    }
+    return true;
+  };
+
+  // Submit form
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (!validateForm()) {
+      Swal.fire({
+        title: "Kekacauan di Force!",
+        text: "Isi semua field terlebih dahulu, Padawan.",
+        icon: "warning",
+        customClass: {
+          popup: "swal2-starwars",
+        },
+        confirmButtonText: "Baik, Master.",
+      });
+      return;
+    }
+
+    submitButton.disabled = true;
+
+    emailjs
+      .sendForm("service_m1s0aee", "template_2dqg7x5", form)
+      .then(() => {
+        Swal.fire({
+          title: "Berhasil",
+          text: "Pesanmu berhasil dikirim",
+          icon: "success",
+          customClass: {
+            popup: "swal2-starwars",
+          },
+          confirmButtonText: "Lanjutkan",
+        }).then(() => {
+          form.reset();
+          updateURL();
+        });
+      })
+      .catch((error) => {
+        console.error("Gagal mengirim pesan:", error);
+        Swal.fire({
+          title: "Kegagalan Sistem Galaksi!",
+          text: "Pesan gagal dikirim. Sith kecewa padamu.",
+          icon: "error",
+          customClass: {
+            popup: "swal2-starwars",
+          },
+          confirmButtonText: "Coba lagi, Stormtrooper.",
+        });
+      })
+      .finally(() => {
+        submitButton.disabled = false;
+      });
+  });
+});
