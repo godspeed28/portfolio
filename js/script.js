@@ -2,31 +2,32 @@
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("contactForm");
 
-  form.addEventListener("submit", function (e) {
+  form.addEventListener("submit", async function (e) {
     e.preventDefault();
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
 
-    fetch("/.netlify/functions/send-email", {
-      method: "POST", // ✅ ini harus POST
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.success) {
-          alert("Pesan berhasil dikirim!");
-          form.reset();
-        } else {
-          alert("Gagal mengirim: " + res.error);
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-        alert("Terjadi kesalahan jaringan.");
+    try {
+      const res = await fetch("/.netlify/functions/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       });
+
+      const result = await res.json();
+
+      if (result.success) {
+        alert("Pesan berhasil dikirim!");
+        form.reset();
+      } else {
+        alert("Gagal mengirim: " + result.error);
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Terjadi kesalahan jaringan.");
+    }
   });
 });
 
