@@ -48,13 +48,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!validateForm()) {
       Swal.fire({
-        title: "Kekacauan di Force!",
-        text: "Isi semua field terlebih dahulu, Padawan.",
+        title: "Form tidak lengkap",
+        text: "Silakan isi semua field yang wajib diisi.",
         icon: "warning",
-        customClass: {
-          popup: "swal2-starwars",
-        },
-        confirmButtonText: "Baik, Master.",
+        confirmButtonText: "OK",
       });
       return;
     }
@@ -65,13 +62,10 @@ document.addEventListener("DOMContentLoaded", () => {
       .sendForm("service_m1s0aee", "template_2dqg7x5", form)
       .then(() => {
         Swal.fire({
-          title: "Berhasil",
-          text: "Pesanmu berhasil dikirim",
+          title: "Pesan Terkirim",
+          text: "Terima kasih, pesan Anda berhasil dikirim.",
           icon: "success",
-          customClass: {
-            popup: "swal2-starwars",
-          },
-          confirmButtonText: "Lanjutkan",
+          confirmButtonText: "Tutup",
         }).then(() => {
           form.reset();
           updateURL();
@@ -80,13 +74,10 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch((error) => {
         console.error("Gagal mengirim pesan:", error);
         Swal.fire({
-          title: "Kegagalan Sistem Galaksi!",
-          text: "Pesan gagal dikirim. Sith kecewa padamu.",
+          title: "Gagal Mengirim",
+          text: "Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.",
           icon: "error",
-          customClass: {
-            popup: "swal2-starwars",
-          },
-          confirmButtonText: "Coba lagi, Stormtrooper.",
+          confirmButtonText: "Tutup",
         });
       })
       .finally(() => {
